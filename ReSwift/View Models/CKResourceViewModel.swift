@@ -1,14 +1,17 @@
 //
-//  ResourceViewModel.swift
+//  CKResourceViewModel2.swift
 //  ReSwift
 //
-//  Created by Naji Achkar on 17/02/2022.
+//  Created by Naji Achkar on 20/02/2022.
+//
+
 
 
 import Foundation
 import SwiftUI
 
 import CloudKit
+import UniformTypeIdentifiers
 
 class CKResourcesViewModel: ObservableObject {
     
@@ -21,9 +24,10 @@ class CKResourcesViewModel: ObservableObject {
     
     
     //////////////////////////////////////////////////////////////////////////////////////////////// CREATE FUNCTIONS    ////////////////////////////////////////////////////////////////////////////////////////////////
-    func addResourceItem(type: String, designImage: UIImage?, codeImage: UIImage?) {
+    func addResourceItem(type: String, designImage: UIImage?, code: String) {
         let newSwiftItem = CKRecord(recordType: "SwiftItem")
         newSwiftItem["type"] = type
+        newSwiftItem["code"] = code
         
         guard let CkDesignImage = designImage,
               let designUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(type)+design.jpg"),
@@ -35,18 +39,6 @@ class CKResourcesViewModel: ObservableObject {
         }  catch let error {
             print(error)
         }
-      
-        guard let CkCodeImage = codeImage,
-              let codeUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(type)+code.jpg"),
-              let codeData = CkCodeImage.jpegData(compressionQuality: 1.0) else { return }
-        do {
-            try codeData.write(to: codeUrl)
-            let codeAsset = CKAsset(fileURL: codeUrl)
-            newSwiftItem["codeImage"] = codeAsset
-        }  catch let error {
-            print(error)
-        }
-        
         saveItem(record: newSwiftItem)
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +51,6 @@ class CKResourcesViewModel: ObservableObject {
             }
         }
     }
-    
     //////////////////////////////////////////////////////////////////////////////////////////////// READ FUNCTIONS    ////////////////////////////////////////////////////////////////////////////////////////////////
     func addOperation(operation: CKDatabaseOperation) {
         CKContainer.default().publicCloudDatabase.add(operation)
@@ -79,14 +70,14 @@ class CKResourcesViewModel: ObservableObject {
                 switch returnedResult {
                 case .success(let record):
                     ////////////////////////////////////////////////////////////////////////////////////////////////
-                    guard let type = record["type"] as? String else { return }
+                    guard let type = record["type"] as? String,
+                          let code = record["code"] as? String   else { return }
+                  
                     let designImageAsset = record["designImage"] as? CKAsset
                     let designImageUrl = designImageAsset?.fileURL
-                    let codeImageAsset = record["codeImage"] as? CKAsset
-                    let codeImageUrl = codeImageAsset?.fileURL
+             
                     
-                    
-                    returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, codeImage: codeImageUrl, record: record))
+                    returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, code: code, record: record))
                                          
                 case .failure(let error):
                     print("Error recordMatchedBlock: \(error)")
@@ -94,14 +85,14 @@ class CKResourcesViewModel: ObservableObject {
             }
         } else {
             queryOperation.recordFetchedBlock =  { (record) in
-                guard let type = record["type"] as? String else { return }
+                guard let type = record["type"] as? String,
+                      let code = record["code"] as? String   else { return }
+              
                 let designImageAsset = record["designImage"] as? CKAsset
                 let designImageUrl = designImageAsset?.fileURL
-                let codeImageAsset = record["codeImage"] as? CKAsset
-                let codeImageUrl = codeImageAsset?.fileURL
+             
                 
-                
-                returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, codeImage: codeImageUrl, record: record))
+                returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, code: code, record: record))
             }
         }
          ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -10,8 +10,11 @@ import SwiftUI
 struct ColorTheme {
     let background = Color("BackgroundColor")
     let elements = Color("ElementsColor")
+    
 }
 
 extension Color {
     static let theme = ColorTheme()
 }
+
+

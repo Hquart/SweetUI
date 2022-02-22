@@ -81,4 +81,12 @@ class CKUserViewModel: ObservableObject {
             }
         }
     }
+    
+//    func addPseudo(pseudo: String) {
+//        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedIdentity, returnedError in
+//            DispatchQueue.main.async {
+//                if let name = CKUserIdentity["pseudonyme"] {
+//                    self?.userName = name
+//                }
+//    }
 }

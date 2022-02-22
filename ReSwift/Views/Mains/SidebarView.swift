@@ -8,45 +8,47 @@
 import SwiftUI
 
 struct SidebarView: View {
-    
-    
+
     @State private var showAddPoolView: Bool = false
     @State private var showAddResourceView: Bool = false
-    
+
     var body: some View {
         NavigationView {
             List {
+                Spacer()
                 NavigationLink(destination: MainView()) {
-                    Label("Database", systemImage: "network")
-                        .font(.headline)
+                    Label("Views", systemImage: "rectangle.split.3x3.fill")
+                        .font(.custom("Arial Rounded MT Bold", size: 25))
                 }
-                NavigationLink(destination: AddSwiftItemView()) {
-                    Label("Add SwiftUI View", systemImage: "rectangle.split.3x1.fill")
-                        .font(.headline)
+           
+                Spacer(minLength: 300)
+                NavigationLink(destination: ContributorsView()) {
+                    Label("Best contributors", systemImage: "star.fill")
+                        .font(.custom("Arial Rounded MT Bold", size: 25))
+                }
+            
+                NavigationLink(destination: SettingsView()) {
+                    Label("Profile Settings", systemImage: "person.fill")
+                        .font(.custom("Arial Rounded MT Bold", size: 25))
                 }
             }
-           
-//            .sheet(isPresented: $showAddPoolView) {
-//                AddPoolView(viewModel: self.poolsViewModel)
-//            }
             .sheet(isPresented: $showAddResourceView) {
                 AddSwiftItemView()
             }
-         
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationTitle("My Resources")
+
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("SweetUI")
             .listStyle(SidebarListStyle())
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        Button("Create new Pool") { showAddPoolView.toggle() }
-                        Button("Add resource to Global Database") { showAddResourceView.toggle() }
-                    } label: {
-                        Image(systemName: "plus.circle")
-                    }
-                }
-            }
-            
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Menu {
+//                        Button("Create new Pool") { showAddPoolView.toggle() }
+//                        Button("Add resource to Global Database") { showAddResourceView.toggle() }
+//                    } label: {
+//                        Image(systemName: "plus.circle")
+//                    }
+//                }
+//            }
         }
     }
 }

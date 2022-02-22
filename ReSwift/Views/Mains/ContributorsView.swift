@@ -9,8 +9,23 @@ import SwiftUI
 
 struct ContributorsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        GeometryReader { geo in
+            NavigationView {
+                ScrollView {
+                    List {
+                        
+              
+                    }
+                }
+                .navigationBarTitle("Best Contributors")
+//                .font(.system(.largeTitle, design: .rounded))
+                .foregroundColor(Color.purple)
+                
+
+            }.navigationViewStyle(StackNavigationViewStyle())
+                .navigationBarColor(backgroundColor: UIColor(Color.theme.background), tintColor: .purple)
+        }
+}
 }
 
 struct ContributorsView_Previews: PreviewProvider {

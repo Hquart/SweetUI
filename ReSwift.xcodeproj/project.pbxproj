@@ -17,14 +17,20 @@
 		96A895CA27BCF43E00C7362A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A895C927BCF43E00C7362A /* ViewExtension.swift */; };
 		96A895CD27BCF46100C7362A /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A895CC27BCF46100C7362A /* TextFieldModifier.swift */; };
 		96A895DC27BCFD1400C7362A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A895DB27BCFD1400C7362A /* ColorExtension.swift */; };
+		9A346B4527C26060000E2B20 /* SwiftDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4427C26060000E2B20 /* SwiftDocument.swift */; };
+		9A346B4727C261AA000E2B20 /* AddSwiftItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4627C261AA000E2B20 /* AddSwiftItemView.swift */; };
+		9A346B4927C279BA000E2B20 /* CKResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4827C279BA000E2B20 /* CKResourceViewModel.swift */; };
+		9A346B4B27C27ACF000E2B20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4A27C27ACF000E2B20 /* MainView.swift */; };
+		9A346B4D27C27B2C000E2B20 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4C27C27B2C000E2B20 /* CodeView.swift */; };
+		9A346B6B27C3EE2B000E2B20 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B6A27C3EE2B000E2B20 /* Tests.swift */; };
+		9A346B6D27C3F918000E2B20 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B6C27C3F918000E2B20 /* NavigationBarColor.swift */; };
+		9A346B6F27C4038F000E2B20 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B6E27C4038F000E2B20 /* AddView.swift */; };
+		9A346B7227C40AC2000E2B20 /* TypeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B7127C40AC2000E2B20 /* TypeSelectionView.swift */; };
+		9A346B7427C41236000E2B20 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B7327C41236000E2B20 /* ImageUploaderView.swift */; };
+		9A346B7627C428E8000E2B20 /* CodeUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B7527C428E8000E2B20 /* CodeUploaderView.swift */; };
 		9AE1B80727BD56E200AEB53B /* SwiftItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B80627BD56E200AEB53B /* SwiftItem.swift */; };
 		9AE1B80B27BE5E0000AEB53B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B80A27BE5E0000AEB53B /* ImagePicker.swift */; };
-		9AE1B80F27BEAB5700AEB53B /* ResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B80E27BEAB5700AEB53B /* ResourceViewModel.swift */; };
-		9AE1B81727BEEAB300AEB53B /* AddSwiftItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B81627BEEAB300AEB53B /* AddSwiftItemView.swift */; };
-		9AE1B81927BEEB6700AEB53B /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B81827BEEB6700AEB53B /* ActionButtonView.swift */; };
 		9AE1B81D27BEF03E00AEB53B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE1B81C27BEF03E00AEB53B /* CloudKit.framework */; };
-		9AE1B81F27BEF69600AEB53B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B81E27BEF69600AEB53B /* MainView.swift */; };
-		9AE1B82127BF05FC00AEB53B /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1B82027BF05FC00AEB53B /* CodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,15 +45,21 @@
 		96A895C927BCF43E00C7362A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		96A895CC27BCF46100C7362A /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		96A895DB27BCFD1400C7362A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		9A346B4427C26060000E2B20 /* SwiftDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDocument.swift; sourceTree = "<group>"; };
+		9A346B4627C261AA000E2B20 /* AddSwiftItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSwiftItemView.swift; sourceTree = "<group>"; };
+		9A346B4827C279BA000E2B20 /* CKResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKResourceViewModel.swift; sourceTree = "<group>"; };
+		9A346B4A27C27ACF000E2B20 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9A346B4C27C27B2C000E2B20 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		9A346B6A27C3EE2B000E2B20 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		9A346B6C27C3F918000E2B20 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
+		9A346B6E27C4038F000E2B20 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		9A346B7127C40AC2000E2B20 /* TypeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionView.swift; sourceTree = "<group>"; };
+		9A346B7327C41236000E2B20 /* ImageUploaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploaderView.swift; sourceTree = "<group>"; };
+		9A346B7527C428E8000E2B20 /* CodeUploaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUploaderView.swift; sourceTree = "<group>"; };
 		9AE1B80627BD56E200AEB53B /* SwiftItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftItem.swift; sourceTree = "<group>"; };
 		9AE1B80A27BE5E0000AEB53B /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		9AE1B80E27BEAB5700AEB53B /* ResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResourceViewModel.swift; path = "ReSwift/View Models/ResourceViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		9AE1B81627BEEAB300AEB53B /* AddSwiftItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSwiftItemView.swift; sourceTree = "<group>"; };
-		9AE1B81827BEEB6700AEB53B /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		9AE1B81A27BEF03700AEB53B /* ReSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReSwift.entitlements; sourceTree = "<group>"; };
 		9AE1B81C27BEF03E00AEB53B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		9AE1B81E27BEF69600AEB53B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		9AE1B82027BF05FC00AEB53B /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +116,7 @@
 		96A895A927BCE8BC00C7362A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9A346B4427C26060000E2B20 /* SwiftDocument.swift */,
 				9AE1B80627BD56E200AEB53B /* SwiftItem.swift */,
 				96A895CB27BCF45500C7362A /* Modifiers */,
 				96A895C827BCF43000C7362A /* Extensions */,
@@ -114,7 +127,7 @@
 		96A895AA27BCE91700C7362A /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				9AE1B80E27BEAB5700AEB53B /* ResourceViewModel.swift */,
+				9A346B4827C279BA000E2B20 /* CKResourceViewModel.swift */,
 				96A895BC27BCEEC800C7362A /* CKUserViewModel.swift */,
 			);
 			path = "View Models";
@@ -133,7 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				96A895C927BCF43E00C7362A /* ViewExtension.swift */,
+				9A346B6A27C3EE2B000E2B20 /* Tests.swift */,
 				96A895DB27BCFD1400C7362A /* ColorExtension.swift */,
+				9A346B6C27C3F918000E2B20 /* NavigationBarColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,8 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				96A8959D27BCE85100C7362A /* SidebarView.swift */,
-				9AE1B81E27BEF69600AEB53B /* MainView.swift */,
-				9AE1B81627BEEAB300AEB53B /* AddSwiftItemView.swift */,
+				9A346B4A27C27ACF000E2B20 /* MainView.swift */,
+				9A346B7027C403BA000E2B20 /* AddViews */,
+				9A346B4627C261AA000E2B20 /* AddSwiftItemView.swift */,
 				96A895BA27BCEE6200C7362A /* SettingsView.swift */,
 				96A895BE27BCEEE700C7362A /* ContributorsView.swift */,
 			);
@@ -161,11 +177,21 @@
 		96A895D927BCFC7D00C7362A /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				9AE1B82027BF05FC00AEB53B /* CodeView.swift */,
-				9AE1B81827BEEB6700AEB53B /* ActionButtonView.swift */,
+				9A346B4C27C27B2C000E2B20 /* CodeView.swift */,
 				9AE1B80A27BE5E0000AEB53B /* ImagePicker.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		9A346B7027C403BA000E2B20 /* AddViews */ = {
+			isa = PBXGroup;
+			children = (
+				9A346B6E27C4038F000E2B20 /* AddView.swift */,
+				9A346B7127C40AC2000E2B20 /* TypeSelectionView.swift */,
+				9A346B7327C41236000E2B20 /* ImageUploaderView.swift */,
+				9A346B7527C428E8000E2B20 /* CodeUploaderView.swift */,
+			);
+			path = AddViews;
 			sourceTree = "<group>";
 		};
 		9AE1B81B27BEF03E00AEB53B /* Frameworks */ = {
@@ -246,18 +272,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AE1B80F27BEAB5700AEB53B /* ResourceViewModel.swift in Sources */,
 				96A895BD27BCEEC800C7362A /* CKUserViewModel.swift in Sources */,
+				9A346B4727C261AA000E2B20 /* AddSwiftItemView.swift in Sources */,
+				9A346B7227C40AC2000E2B20 /* TypeSelectionView.swift in Sources */,
+				9A346B6F27C4038F000E2B20 /* AddView.swift in Sources */,
 				96A8959E27BCE85100C7362A /* SidebarView.swift in Sources */,
-				9AE1B81F27BEF69600AEB53B /* MainView.swift in Sources */,
-				9AE1B82127BF05FC00AEB53B /* CodeView.swift in Sources */,
+				9A346B4D27C27B2C000E2B20 /* CodeView.swift in Sources */,
+				9A346B6D27C3F918000E2B20 /* NavigationBarColor.swift in Sources */,
+				9A346B4527C26060000E2B20 /* SwiftDocument.swift in Sources */,
 				96A895DC27BCFD1400C7362A /* ColorExtension.swift in Sources */,
 				96A895CD27BCF46100C7362A /* TextFieldModifier.swift in Sources */,
-				9AE1B81727BEEAB300AEB53B /* AddSwiftItemView.swift in Sources */,
 				9AE1B80B27BE5E0000AEB53B /* ImagePicker.swift in Sources */,
+				9A346B4B27C27ACF000E2B20 /* MainView.swift in Sources */,
+				9A346B6B27C3EE2B000E2B20 /* Tests.swift in Sources */,
 				96A895BF27BCEEE700C7362A /* ContributorsView.swift in Sources */,
 				96A895BB27BCEE6200C7362A /* SettingsView.swift in Sources */,
-				9AE1B81927BEEB6700AEB53B /* ActionButtonView.swift in Sources */,
+				9A346B4927C279BA000E2B20 /* CKResourceViewModel.swift in Sources */,
+				9A346B7627C428E8000E2B20 /* CodeUploaderView.swift in Sources */,
+				9A346B7427C41236000E2B20 /* ImageUploaderView.swift in Sources */,
 				96A895CA27BCF43E00C7362A /* ViewExtension.swift in Sources */,
 				9AE1B80727BD56E200AEB53B /* SwiftItem.swift in Sources */,
 				96A8959C27BCE85100C7362A /* ReSwiftApp.swift in Sources */,

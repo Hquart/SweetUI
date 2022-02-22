@@ -9,28 +9,26 @@ import SwiftUI
 
 struct AddSwiftItemView: View {
     
-    //        @State private var typedTitle = ""
-    //        @State private var selectedTag: ResourceTag? = nil
-    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel = CKResourcesViewModel()
     
+    @State private var document: MessageDocument = MessageDocument(content: "Hello, World!")
+    @State private var isImportingFile: Bool = false
+    
     @State private var isPresented = false
-    @State private var isShowingCodeImageLibrary = false
-    @State private var isShowingPreviewImageLibrary = false
-    @State private var codeImage = UIImage()
+
+    @State private var showPicker = false
+
     @State private var previewImage = UIImage()
     @State private var selectedType: String = ""
     
     var types = ["Button", "Alert", "Slider"]
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
-    
     var body: some View {
         GeometryReader { geo in
             VStack(spacing: 15) {
-              
                     //////////////////////////////////////////// TYPE SELECTION///////////////////////
                     Section(header: Text("Select type of View you want to provide")) {
                         LazyVGrid(columns: gridColumns) {
@@ -41,7 +39,6 @@ struct AddSwiftItemView: View {
                                     .padding()
                                     .background(self.selectedType == type ? Color.blue : Color.gray)
                                     .cornerRadius(20)
-                                
                                     .onTapGesture {
                                         withAnimation(.easeIn(duration: 0.2)) {
                                             selectedType = type
@@ -51,34 +48,53 @@ struct AddSwiftItemView: View {
                         }
                     }
                     HStack {
-                        ActionButtonView(size: geo.size, actionIcon: "list.bullet.rectangle", actionText: "Upload Code Image", toggleSheet: toggleCodeImagePicker)
-                            .sheet(isPresented: $isShowingCodeImageLibrary) {
-                                ImagePicker(selectedImage: $codeImage, hasSelected: $isShowingCodeImageLibrary)
+                        Spacer()
+                        Button("import") {
+                            isImportingFile.toggle()
+                        }
+
+                            .fileImporter(
+                                isPresented: $isImportingFile,
+                                allowedContentTypes: [.swiftSource],
+                                allowsMultipleSelection: false
+                            ) { result in
+                                do {
+                                    guard let selectedFile: URL = try result.get().first else { return }
+                                    if selectedFile.startAccessingSecurityScopedResource() {
+                                        guard let content = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
+                                        defer { selectedFile.stopAccessingSecurityScopedResource() }
+                                        document.content = content
+                                    } else {
+                                   print("deded")
+                                    }
+                                    } catch {
+                                        // Handle failure.
+                                    }
+                                }
+                        Spacer()
+                        Button("Add screenshot") {
+                            showPicker.toggle()
+                        }
+                            .sheet(isPresented: $showPicker) {
+                                ImagePicker(selectedImage: $previewImage, hasSelected: $showPicker)
                             }
-                        
-                        ActionButtonView(size: geo.size, actionIcon: "list.bullet.rectangle", actionText: "Upload Preview Image", toggleSheet: togglePreviewImagePicker)
-                            .sheet(isPresented: $isShowingPreviewImageLibrary) {
-                                ImagePicker(selectedImage: $previewImage, hasSelected: $isShowingPreviewImageLibrary)
-                            }
+                        Spacer()
                     }
                     .padding(.vertical)
                     
                     HStack {
-                        Image(uiImage: codeImage)
-                            .resizable()
-                            .scaledToFill()
-                            .clipped()
-                            .frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
-                            .cornerRadius(10)
+                        GroupBox(label: Text("Code here:")) {
+                            TextEditor(text: $document.content)
+                        }
+                      
                         Image(uiImage: previewImage)
                             .resizable()
                             .scaledToFill()
                             .clipped()
                             .frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
                             .cornerRadius(10)
-                        //.frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
+                        .frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
                     }
-                
             }
         }
         .navigationTitle("Create Resource")
@@ -92,19 +108,14 @@ struct AddSwiftItemView: View {
         .padding()
         .ignoresSafeArea(.keyboard)
     }
-    func toggleSheet() { isPresented.toggle() }
-    func toggleCodeImagePicker() { isShowingCodeImageLibrary.toggle() }
-    func togglePreviewImagePicker() { isShowingPreviewImageLibrary.toggle() }
     
     func confirm() {
-        viewModel.addResourceItem(type: selectedType, designImage: previewImage, codeImage: codeImage)
+        viewModel.addResourceItem(type: selectedType, designImage: previewImage, code: document.content)
         presentationMode.wrappedValue.dismiss()
-        
     }
-    
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AddSwiftItemView_Previews: PreviewProvider {
     static var previews: some View {
         AddSwiftItemView()
             .previewInterfaceOrientation(.landscapeLeft)
