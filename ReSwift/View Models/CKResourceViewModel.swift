@@ -17,12 +17,13 @@ class CKResourcesViewModel: ObservableObject {
     
     @Published var swiftItems: [SwiftItem] = []
     
+//    @Published var type = ""
+//    @Published var image: UIImage?
+//    @Published var code = ""
+    
     init() {
         fetchItems()
     }
-    
-    
-    
     //////////////////////////////////////////////////////////////////////////////////////////////// CREATE FUNCTIONS    ////////////////////////////////////////////////////////////////////////////////////////////////
     func addResourceItem(type: String, designImage: UIImage?, code: String) {
         let newSwiftItem = CKRecord(recordType: "SwiftItem")
@@ -135,28 +136,3 @@ class CKResourcesViewModel: ObservableObject {
 
 }
 
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////   ////////////////////////////////////////////////////////////////////////////////////////////////
-//    func fetchPreview(urlString: String) {
-//        guard let url = URL(string: urlString) else {
-//            return
-//        }
-//        let linkPreview = LPLinkView()
-//        let provider = LPMetadataProvider()
-//        provider.startFetchingMetadata(for: url) { [weak self] metaData, error in
-//            guard let data = metaData, error == nil else {
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                linkPreview.metadata = data
-//                self?.view.addSubview(linkPreview)
-//                linkPreview.frame = CGRect(x: 0, y: 0, width: 250, height: 250)
-//                linkPreview.center = self?.view.center ?? .zero
-//            }
-//        }
-//    }

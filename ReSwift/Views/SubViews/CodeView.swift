@@ -16,8 +16,6 @@ struct CodeView: View {
         
         TextEditor(text: $code)
             .font(.custom("SF Mono Bold", size: 20))
-           
-       
-//            .scaledToFill()
+          
     }
 }

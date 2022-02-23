@@ -11,7 +11,6 @@ import UniformTypeIdentifiers
 
 struct MessageDocument: FileDocument {
     
-//    static var readableContentTypes: [UTType] { [.plainText] }
     static var readableContentTypes: [UTType] { [.swiftSource, .plainText] }
 
     var content: String

@@ -19,4 +19,13 @@ struct SwiftItem: Hashable {
     
 }
 
-
+class ItemRepresentable: ObservableObject {
+    
+    var type: String = ""
+    var designImage: UIImage?
+    var code: String = ""
+    
+    static let shared = ItemRepresentable()
+    
+    
+}

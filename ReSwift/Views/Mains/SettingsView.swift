@@ -24,7 +24,7 @@ struct SettingsView: View {
             VStack() {
                 Image("memoji")
                     .resizable()
-                    .frame(maxWidth: geo.size.width * 0.2, maxHeight: geo.size.width * 0.2)
+                    .frame(maxWidth: geo.size.width * 0.1, maxHeight: geo.size.width * 0.1)
                     .padding()
                     .clipShape(Circle())
                     .overlay {
@@ -32,7 +32,7 @@ struct SettingsView: View {
                     }
                     .shadow(radius: 7)
                 Text(currentName)
-                    .font(.system(size: geo.size.width * 0.08, weight: .bold, design: .default))
+                    .font(.title3)
                 HStack {
                     TextField("", text: $userName)
                         .defaultTextFieldStyle(text: $userName) {
