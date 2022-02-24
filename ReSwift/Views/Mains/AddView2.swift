@@ -8,14 +8,14 @@
 import SwiftUI
 
 
-struct AddNewItemView: View {
+struct AddNewItemView2: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    var types: [String] = ["Button", "Alert", "Slider", "Widget", "ProgressView", "Other"]
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
-    @StateObject var viewModel = CKResourcesViewModel()
+    @StateObject var viewModel = CloudKitService()
+    @StateObject var userViewModel = CKUser()
     
     @State private var selectedType: String = ""
     @State private var typeIsSelected = false
@@ -36,16 +36,16 @@ struct AddNewItemView: View {
                         .frame(width: geo.size.width, height: geo.size.height * 0.07)
                     ///////////////////// TYPES BUTTONS GRID ///////////////////////////////
                     LazyVGrid(columns: gridColumns, spacing: 20) {
-                        ForEach(types, id: \.self) { type in
-                            Text("\(type)")
-                                .foregroundColor(self.selectedType == type ? Color.white : Color.primary)
+                        ForEach(CollectionType.allCases, id: \.self) { type in
+                            Text("\(type.name)")
+                                .foregroundColor(self.selectedType == type.name ? Color.white : Color.primary)
                                 .font(.custom("Arial Rounded MT Bold", size: 20))
                                 .padding()
-                                .background(self.selectedType == type ? Color.blue : Color.theme.background)
+                                .background(self.selectedType == type.name ? Color.blue : Color.theme.background)
                                 .cornerRadius(20)
                                 .onTapGesture {
                                     withAnimation(.easeIn(duration: 0.2)) {
-                                        selectedType = type
+                                        selectedType = type.name
                                         typeIsSelected.toggle()
                                     }
                                 }
@@ -102,10 +102,10 @@ struct AddNewItemView: View {
                 }
                 
                 Button("Save") {
-                  confirm()
-                   
+                    confirm()
+                    
                 }
-           
+                
                 .foregroundColor(Color.white)
                 .padding()
                 .background(Color.red)
@@ -113,8 +113,8 @@ struct AddNewItemView: View {
                 .shadow(color: Color.black, radius: 2)
             }
             .alert(isPresented: $showAlert) {
-                      Alert(title: Text("Incorrect Submission"), message: Text("Please select type, upload a screenshot and paste your code"), dismissButton: .default(Text("Got it!")))
-                  }
+                Alert(title: Text("Incorrect Submission"), message: Text("Please complete all steps and make sure you are logged in to iCloud on your device"), dismissButton: .default(Text("Got it!")))
+            }
             
             //                .frame(width: geo.size.width, height: geo.size.height * 0.8)
         }
@@ -123,10 +123,13 @@ struct AddNewItemView: View {
     func confirm() {
         guard selectedType != "",
               imageisUploaded == true,
-              codeSnippet.count > 10 else {
+              codeSnippet.count > 10,
+              userViewModel.isSignedInToiCloud == true else {
+                  
                   showAlert.toggle()
                   return }
         viewModel.addResourceItem(type: selectedType, designImage: previewImage, code: codeSnippet)
+        
         presentationMode.wrappedValue.dismiss()
         
     }

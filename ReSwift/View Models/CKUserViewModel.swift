@@ -8,7 +8,7 @@
 import Foundation
 import CloudKit
 
-class CKUserViewModel: ObservableObject {
+class CKUser: ObservableObject {
     
     @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""

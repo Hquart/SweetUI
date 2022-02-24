@@ -11,19 +11,33 @@ struct ContributorsView: View {
     var body: some View {
         GeometryReader { geo in
             NavigationView {
-                ScrollView {
-                    List {
-                        
+                VStack {
               
+                    Text("Coming Soon:")
+                        .font(.custom("Arial Rounded MT Bold", size: 20))
+                        .foregroundColor(Color.theme.pinkIcon)
+                        .padding().frame(width: geo.size.width * 0.3, height: geo.size.height * 0.05)
+                    
+                        .background(Color.theme.darkBlue)
+                        .cornerRadius(4)
+                        .shadow(color: Color.theme.pinkIcon, radius: 8)
+                    Group {
+                        Text(String(localized: "beta1")).padding()
+                        Text(String(localized: "beta2")).padding()
                     }
+                    .foregroundColor(Color(UIColor.systemGray4))
+                    .font(.title.bold())
+                    .multilineTextAlignment(.center)
+              
+                    
                 }
                 .navigationBarTitle("Best Contributors")
-//                .font(.system(.largeTitle, design: .rounded))
-                .foregroundColor(Color.purple)
+                .font(.custom("Arial Rounded MT Bold", size: 20))
+                .foregroundColor(Color.black)
                 
 
             }.navigationViewStyle(StackNavigationViewStyle())
-                .navigationBarColor(backgroundColor: UIColor(Color.theme.background), tintColor: .purple)
+                .navigationBarColor(backgroundColor: UIColor(Color.theme.background), tintColor: .black)
         }
 }
 }

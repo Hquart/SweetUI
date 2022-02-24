@@ -13,16 +13,13 @@ import SwiftUI
 import CloudKit
 import UniformTypeIdentifiers
 
-class CKResourcesViewModel: ObservableObject {
+class CloudKitService: ObservableObject {
     
     @Published var swiftItems: [SwiftItem] = []
-    
-//    @Published var type = ""
-//    @Published var image: UIImage?
-//    @Published var code = ""
+    @Published var sweetUser: [SweetUser] = []
     
     init() {
-        fetchItems()
+        fetchSwiftItems()
     }
     //////////////////////////////////////////////////////////////////////////////////////////////// CREATE FUNCTIONS    ////////////////////////////////////////////////////////////////////////////////////////////////
     func addResourceItem(type: String, designImage: UIImage?, code: String) {
@@ -42,13 +39,31 @@ class CKResourcesViewModel: ObservableObject {
         }
         saveItem(record: newSwiftItem)
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    func addSweetUser(name: String, avatar: UIImage?, id: String) {
+        let newSweetUser = CKRecord(recordType: "SweetUser")
+        newSweetUser["name"] = name
+        newSweetUser["id"] = id
+        
+        guard let CkAvatar = avatar,
+              let avatarUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(name).avatar.jpg"),
+              let avatarData = CkAvatar.jpegData(compressionQuality: 1.0) else { return }
+        do {
+            try avatarData.write(to: avatarUrl)
+            let avatarAsset = CKAsset(fileURL: avatarUrl)
+            newSweetUser["avatar"] = avatarAsset
+        }  catch let error {
+            print(error)
+        }
+        saveItem(record: newSweetUser)
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private func saveItem(record: CKRecord) {
         CKContainer.default().publicCloudDatabase.save(record) { [weak self] returnedRecord, returnedError in
             print("Record: \(String(describing: returnedRecord))")
             print("Error: \(String(describing: returnedError))")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self?.fetchItems()
+                self?.fetchSwiftItems()
             }
         }
     }
@@ -57,7 +72,7 @@ class CKResourcesViewModel: ObservableObject {
         CKContainer.default().publicCloudDatabase.add(operation)
     }
     
-     func fetchItems() {
+     func fetchSwiftItems() {
         
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "SwiftItem", predicate: predicate)
@@ -72,7 +87,7 @@ class CKResourcesViewModel: ObservableObject {
                 case .success(let record):
                     ////////////////////////////////////////////////////////////////////////////////////////////////
                     guard let type = record["type"] as? String,
-                          let code = record["code"] as? String   else { return }
+                          let code = record["code"] as? String  else { return }
                   
                     let designImageAsset = record["designImage"] as? CKAsset
                     let designImageUrl = designImageAsset?.fileURL

@@ -5,3 +5,25 @@
   Created by Naji Achkar on 22/02/2022.
   
 */
+
+"onboarding1" = "Join a community of iOS developers sharing custom SwiftUI views";
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+"home0" = "Welcome";
+
+"home1" = "Choose a category of views to browse in the sidebar";
+
+"home2" = "To add your custom views, click the + button on the top right";
+
+"home3" = "You need to be logged to iCloud in the settings of your device to be able to add a view to the database";
+ 
+"home4" = "Enjoy !";
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+"beta1" = "Rank users according to their number of contributions";
+
+"beta2" = "Feature still in development";
+
+////////////////////////////////////////////////////////////////////////////////////////////////

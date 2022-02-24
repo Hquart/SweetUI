@@ -10,6 +10,9 @@ import SwiftUI
 struct ColorTheme {
     let background = Color("BackgroundColor")
     let elements = Color("ElementsColor")
+    let darkBlue = Color("DarkBlue")
+    let lightBlue = Color("LightBlue")
+    let pinkIcon = Color("PinkIcon")
     
 }
 

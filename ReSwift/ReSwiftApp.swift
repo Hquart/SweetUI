@@ -15,3 +15,11 @@ struct ReSwiftApp: App {
         }
     }
 }
+
+
+class CurrentView: ObservableObject {
+    
+    @Published var selection: String = ""
+
+    static let shared = CurrentView()
+}

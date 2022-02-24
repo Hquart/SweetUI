@@ -10,32 +10,39 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var viewModel = CKResourcesViewModel()
+    @StateObject var viewModel = CloudKitService()
+    
+    @ObservedObject var currentView = CurrentView.shared
     
     @State private var showCode: Bool = false
     @State private var itemTaped: SwiftItem?
     @State private var codeSnippet: String = ""
     @State private var showAddView: Bool = false
+
+    @State var collectionType: String
     
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
         GeometryReader { geo in
+          
+               
             NavigationView {
                 ScrollView {
                     Spacer()
-                    Text("Click on a view to get the code")
-                        .foregroundColor(Color(UIColor.systemGray4))
-                        .font(.title3.bold())
+                    Text("Tap View to get the code")
+                        .foregroundColor(Color.gray)
+                        .font(.title2.bold())
 //                        .frame(width: geo.size.width, height: geo.size.height * 0.3)
                     LazyVGrid(columns: gridColumns, alignment: .center, spacing: 20) {
                         ForEach(viewModel.swiftItems, id: \.self) { item in
+                            if item.type == collectionType {
                             if let designUrl = item.designImage,
                                let designData = try? Data(contentsOf: designUrl),
                                let designImage = UIImage(data: designData) {
                                     RoundedRectangle(cornerRadius: 15)
                                     .foregroundColor(Color.white)
-                                    .shadow(color: .theme.background, radius: 8, x: 0, y: 0)
+                                    .shadow(color: .theme.darkBlue, radius: 5, x: 0, y: 0)
                                     .padding()
                                     .frame(width: geo.size.width * (1/3), height: geo.size.height * 0.2)
                                         .overlay(
@@ -50,49 +57,55 @@ struct MainView: View {
                                             showCode.toggle()
                                         }
                                         .padding()
-                                    
-                                
-                                /*Image(uiImage: designImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .cornerRadius(15)
-                                    .frame(width: geo.size.width * (1/5), height: geo.size.width * (1/5))
-                                    .onTapGesture {
-                                        itemTaped = item
-                                        self.codeSnippet = item.code
-                                        showCode.toggle()
-                                    }*/
                             }
                         }
                     }
                 }
+                   
+                }
+                
+//                .background(LinearGradient(colors: , startPoint: .leading, endPoint: .trailing))
+                
+                .background(RadialGradient(gradient: Gradient(colors: [.gray, .theme.background]), center: .center, startRadius: 2, endRadius: 650))
+                .onAppear(perform: viewModel.fetchSwiftItems)
+                
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             showAddView.toggle()
                         } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.title)
-                                .foregroundColor(Color.pink)
+                            Text("+")
+                                .font(.custom("Arial Rounded MT Bold", size: 45))
+                                .foregroundColor(Color.theme.pinkIcon)
+                                .padding()
+                         
+                                .background(Color.theme.darkBlue)
+                                .clipShape(Circle())
+                        
+                              
+                                .shadow(color: Color.theme.lightBlue, radius: 8)
                         }
                     }
                 }
-                
-                .navigationBarTitle("Buttons collection")
-                //                                .font(.custom("Arial Rounded MT Bold", size: 150))
-                .onAppear(perform: viewModel.fetchItems)
+                .navigationBarTitle("\(collectionType)" + " collection")
+                .font(.custom("Arial Rounded MT Bold", size: 20))
+                .onAppear(perform: setView)
                 .sheet(isPresented: $showCode) {
                     CodeView(code: $codeSnippet)
-                        .background(Color.black)
+                      
                 }
                 .sheet(isPresented: $showAddView) {
                     AddNewItemView()
                 }
-                
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarColor(backgroundColor: UIColor(Color.theme.background), tintColor: UIColor(Color.primary))
         }
+        
+    }
+    func setView() {
+        viewModel.fetchSwiftItems()
+        self.currentView.selection = collectionType
     }
 }
 

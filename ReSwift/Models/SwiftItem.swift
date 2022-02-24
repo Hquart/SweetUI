@@ -12,20 +12,22 @@ import CloudKit
 
 struct SwiftItem: Hashable {
     
+    
     let type: String
     let designImage: URL?
     let code: String
     let record: CKRecord
     
-}
 
-class ItemRepresentable: ObservableObject {
+
+   
+    }
+
     
-    var type: String = ""
-    var designImage: UIImage?
-    var code: String = ""
-    
-    static let shared = ItemRepresentable()
+  
     
     
-}
+
+
+
+
