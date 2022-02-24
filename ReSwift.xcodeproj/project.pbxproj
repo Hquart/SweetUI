@@ -19,7 +19,6 @@
 		96A895DC27BCFD1400C7362A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A895DB27BCFD1400C7362A /* ColorExtension.swift */; };
 		9A100BCE27C7D35500677062 /* ButtonsLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A100BCD27C7D35500677062 /* ButtonsLibraryView.swift */; };
 		9A100BD027C7D5F800677062 /* CollectionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A100BCF27C7D5F800677062 /* CollectionTypes.swift */; };
-		9A100BD227C7E7B500677062 /* AddView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A100BD127C7E7B500677062 /* AddView2.swift */; };
 		9A346B4527C26060000E2B20 /* SwiftDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4427C26060000E2B20 /* SwiftDocument.swift */; };
 		9A346B4927C279BA000E2B20 /* CKResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4827C279BA000E2B20 /* CKResourceViewModel.swift */; };
 		9A346B4B27C27ACF000E2B20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4A27C27ACF000E2B20 /* MainView.swift */; };
@@ -50,7 +49,6 @@
 		96A895DB27BCFD1400C7362A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		9A100BCD27C7D35500677062 /* ButtonsLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLibraryView.swift; sourceTree = "<group>"; };
 		9A100BCF27C7D5F800677062 /* CollectionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionTypes.swift; path = ReSwift/Views/Mains/CollectionTypes.swift; sourceTree = SOURCE_ROOT; };
-		9A100BD127C7E7B500677062 /* AddView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView2.swift; sourceTree = "<group>"; };
 		9A346B4427C26060000E2B20 /* SwiftDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDocument.swift; sourceTree = "<group>"; };
 		9A346B4827C279BA000E2B20 /* CKResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKResourceViewModel.swift; sourceTree = "<group>"; };
 		9A346B4A27C27ACF000E2B20 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				9A346B4A27C27ACF000E2B20 /* MainView.swift */,
 				9A100BCD27C7D35500677062 /* ButtonsLibraryView.swift */,
 				9A346B6E27C4038F000E2B20 /* AddView.swift */,
-				9A100BD127C7E7B500677062 /* AddView2.swift */,
 				96A895BA27BCEE6200C7362A /* SettingsView.swift */,
 				96A895BE27BCEEE700C7362A /* ContributorsView.swift */,
 			);
@@ -295,7 +292,6 @@
 				9AB7DC6F27C77736002F9555 /* OnboardingView.swift in Sources */,
 				9A100BCE27C7D35500677062 /* ButtonsLibraryView.swift in Sources */,
 				9AB7DC6B27C6A9E7002F9555 /* LoginView.swift in Sources */,
-				9A100BD227C7E7B500677062 /* AddView2.swift in Sources */,
 				96A895BB27BCEE6200C7362A /* SettingsView.swift in Sources */,
 				9A346B4927C279BA000E2B20 /* CKResourceViewModel.swift in Sources */,
 				96A895CA27BCF43E00C7362A /* ViewExtension.swift in Sources */,

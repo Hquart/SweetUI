@@ -30,9 +30,9 @@ struct MainView: View {
             NavigationView {
                 ScrollView {
                     Spacer()
-                    Text("Tap View to get the code")
-                        .foregroundColor(Color.gray)
-                        .font(.title2.bold())
+                    Text("Tap to get the code")
+                        .foregroundColor(Color.theme.darkBlue)
+                        .font(.headline)
 //                        .frame(width: geo.size.width, height: geo.size.height * 0.3)
                     LazyVGrid(columns: gridColumns, alignment: .center, spacing: 20) {
                         ForEach(viewModel.swiftItems, id: \.self) { item in

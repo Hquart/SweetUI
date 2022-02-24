@@ -75,9 +75,17 @@ struct SettingsView: View {
                         .background(Color.theme.darkBlue)
                         .cornerRadius(4)
                         .shadow(color: Color.theme.pinkIcon, radius: 8)
-                    Text(String(localized: "beta2"))
+                   
                         .foregroundColor(Color(UIColor.systemGray4))
                         .font(.title2.bold())
+                    
+                    Group {
+                        Text(String(localized: "beta1")).padding()
+                        Text(String(localized: "beta2")).padding()
+                    }
+                    .foregroundColor(Color(UIColor.systemGray4))
+                    .font(.title.bold())
+                    .multilineTextAlignment(.center)
                     ////////////////////////////////////////////////////////////////////////////////////////////////
                 } else {
                     Text("Welcome: \(name)")

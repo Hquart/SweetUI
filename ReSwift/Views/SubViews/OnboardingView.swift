@@ -48,7 +48,7 @@ struct OnboardingView: View {
                         Image("onboarding2")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
-                        Text("Browse the library and tap the one you like to get the code")
+                        Text("Browse the library and tap the View you like to get the code")
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .font(.custom("Arial Rounded MT Bold", size: 25))
@@ -78,14 +78,19 @@ struct OnboardingView: View {
                     VStack {
                         Text("Welcome")
                             .foregroundColor(.primary)
-                            .font(.custom("Arial Rounded MT Bold", size: 25))
+                            .font(.custom("Arial Rounded MT Bold", size: 45))
+                        
+                        
                         Button("Let's go !") {
                             isShowingExplanations.toggle()
                         }
-                        .foregroundColor(Color(UIColor.systemBackground))
-                        .font(.custom("Arial Rounded MT Bold", size: 25))
+                        .font(.custom("Arial Rounded MT Bold", size: 45))
+                        .foregroundColor(Color.theme.pinkIcon)
                         .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.1)
-                        .background(Color.pink.cornerRadius(10))
+                        .background(Color.theme.darkBlue)
+                        .cornerRadius(8)
+                        .shadow(color: Color.theme.lightBlue, radius: 10)
+                        .padding()
                     }
                 }
                 .tabViewStyle(.page)

@@ -26,15 +26,20 @@ struct AddNewItemView: View {
     @State private var imageisUploaded: Bool = false
     @State private var codeSnippet: String = ""
     @State private var showAlert: Bool = false
+    @State private var showThankYou: Bool = false
     
     var body: some View {
         GeometryReader { geo in
             VStack {
                 /////////////////// IMAGE PICKER /////////////////////////////////////////////////
                 Spacer(minLength: 30)
-                Text("Please Upload a screenshot of your view")
+                Group {
+                Text("Upload a screenshot of your view")
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
+                    Text("Please make a screenshot of your view on a white background with a little padding")
+                        .foregroundColor(Color(UIColor.systemGray4))
+                }
                 Button {
                     showPicker.toggle()
                 } label: {
@@ -61,9 +66,13 @@ struct AddNewItemView: View {
                 Divider()
                 ///////////////CODE///////
                 Spacer(minLength: 30)
+                Group {
                 Text("2 - Paste Swift code below")
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
+                Text("Comment your code to add instructions if needed")
+                    .foregroundColor(Color(UIColor.systemGray4))
+                }
                 Button {
                     pasteCode()
                 } label: {
@@ -76,6 +85,7 @@ struct AddNewItemView: View {
                 }
                 ZStack {
                     TextEditor(text: $codeSnippet)
+                        .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.5, alignment: .center)
                         .border(Color.gray)
                         .padding()
                     if codeSnippet.count < 1 {
@@ -88,7 +98,6 @@ struct AddNewItemView: View {
                 
                 Button("Submit") {
                   confirm()
-                   
                 }
                 .font(.headline)
                 .foregroundColor(Color.theme.pinkIcon)
@@ -101,9 +110,7 @@ struct AddNewItemView: View {
         
             .alert(isPresented: $showAlert) {
                       Alert(title: Text("Incorrect Submission"), message: Text("Please complete all steps and make sure you are logged in to iCloud on your device"), dismissButton: .default(Text("Got it!")))
-               
                   }
-        
         }
     }
     
@@ -118,13 +125,11 @@ struct AddNewItemView: View {
         guard imageisUploaded == true,
               codeSnippet.count > 10,
         userViewModel.isSignedInToiCloud == true else {
-        
                   showAlert.toggle()
                   return }
         viewModel.addResourceItem(type: currentView.selection, designImage: previewImage, code: codeSnippet)
-     
         presentationMode.wrappedValue.dismiss()
-        
+
     }
 }
 
