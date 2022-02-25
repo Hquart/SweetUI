@@ -48,7 +48,7 @@ struct OnboardingView: View {
                         Image("onboarding2")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
-                        Text("Browse the library and tap the View you like to get the code")
+                        Text(String(localized: "onboarding2"))
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .font(.custom("Arial Rounded MT Bold", size: 25))
@@ -68,7 +68,7 @@ struct OnboardingView: View {
                         Image("onboarding3")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
-                        Text("Help grow the community by sharing your own designs")
+                        Text(String(localized: "onboarding3"))
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                             .font(.custom("Arial Rounded MT Bold", size: 25))
@@ -81,7 +81,7 @@ struct OnboardingView: View {
                             .font(.custom("Arial Rounded MT Bold", size: 45))
                         
                         
-                        Button("Let's go !") {
+                        Button(String(localized: "onboadring4")) {
                             isShowingExplanations.toggle()
                         }
                         .font(.custom("Arial Rounded MT Bold", size: 45))
@@ -107,21 +107,7 @@ struct OnboardingView: View {
         }
     }
 
-//    struct ExplanationImageView: View {
-//        var size: CGSize
-//        var images: [String]
-//        var body: some View {
-//            HStack {
-//                ForEach(images, id: \.self) { image in
-//                    Image(systemName: image)
-//                        .foregroundColor(.primary)
-//                        .font(.system(size: size.width * 0.2, weight: .semibold, design: .default))
-//                }
-//            }
-//            .frame(width: size.width * 0.8, height: size.height * 0.3)
-//            .padding()
-//        }
-//    }
+
 
 
 

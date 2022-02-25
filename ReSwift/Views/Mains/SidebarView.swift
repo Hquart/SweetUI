@@ -29,22 +29,20 @@ struct SidebarView: View {
                     Spacer()
                     ForEach(CollectionType.allCases, id: \.self) { type in
                         NavigationLink(destination: MainView(collectionType: "\(type.name)")) {
-                            
                             HStack {
                                 Image(systemName: "\(type.symbol)")
                                 
                                     .foregroundColor(Color.theme.pinkIcon)
                                 Text(type.name) .foregroundColor(Color.theme.darkBlue)
                             }
-                            .font(.custom("Arial Rounded MT Bold", size: 25))
+                            .font(.custom("Arial Rounded MT Bold", size: 22))
                         }
                     }
                     Spacer()
                     Group {
-                        Spacer(minLength: 350)
+                        Spacer(minLength: geo.size.height * 0.3)
                         NavigationLink(destination: SettingsView()) {
-                            
-                            Label("Profile Settings", systemImage: "star.fill")
+                            Label(String(localized: "profileTitle"), systemImage: "star.fill")
                                 .font(.custom("Arial Rounded MT Bold", size: 20)).disabled(inBeta)
                         }
 //                        NavigationLink(destination: ContributorsView()) {

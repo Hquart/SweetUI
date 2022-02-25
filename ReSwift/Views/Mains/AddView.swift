@@ -34,10 +34,10 @@ struct AddNewItemView: View {
                 /////////////////// IMAGE PICKER /////////////////////////////////////////////////
                 Spacer(minLength: 30)
                 Group {
-                Text("Upload a screenshot of your view")
+                Text(String(localized: "addView1")) // "Upload a screenshot of your view"
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
-                    Text("Please make a screenshot of your view on a white background with a little padding")
+                    Text(String(localized: "addView2")) // "Please make a screenshot of your view on a white background with a little padding"
                         .foregroundColor(Color(UIColor.systemGray4))
                 }
                 Button {
@@ -50,7 +50,7 @@ struct AddNewItemView: View {
                             .frame(width: geo.size.width * 0.6, height: geo.size.height * 0.15)
                     } else {
                         Text("Pick Image")
-                            .font(.headline)
+                            .font(.title3)
                             .foregroundColor(Color.theme.pinkIcon)
                             .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.06)
                             .background(Color.theme.darkBlue)
@@ -67,10 +67,10 @@ struct AddNewItemView: View {
                 ///////////////CODE///////
                 Spacer(minLength: 30)
                 Group {
-                Text("2 - Paste Swift code below")
+                Text(String(localized: "addView3")) //"Paste Swift code below"
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
-                Text("Comment your code to add instructions if needed")
+                Text(String(localized: "addView4"))// "Comment your code to add instructions if needed"
                     .foregroundColor(Color(UIColor.systemGray4))
                 }
                 Button {
@@ -85,7 +85,7 @@ struct AddNewItemView: View {
                 }
                 ZStack {
                     TextEditor(text: $codeSnippet)
-                        .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.5, alignment: .center)
+                        .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.3, alignment: .center)
                         .border(Color.gray)
                         .padding()
                     if codeSnippet.count < 1 {
@@ -96,10 +96,11 @@ struct AddNewItemView: View {
                     }
                 }
                 
-                Button("Submit") {
+                Button(String(localized: "addView5")) { // "Submit"
                   confirm()
                 }
-                .font(.headline)
+                
+                .font(.title2)
                 .foregroundColor(Color.theme.pinkIcon)
                 .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.06)
                 .background(Color.theme.darkBlue)
@@ -109,7 +110,9 @@ struct AddNewItemView: View {
             }
         
             .alert(isPresented: $showAlert) {
-                      Alert(title: Text("Incorrect Submission"), message: Text("Please complete all steps and make sure you are logged in to iCloud on your device"), dismissButton: .default(Text("Got it!")))
+                      Alert(title: Text(String(localized: "alert1")), message: Text(String(localized: "alert2")), dismissButton: .default(Text("OK")))
+                // "Incorrect Submission"
+                // "Please complete all steps and make sure you are logged in to iCloud on your device"
                   }
         }
     }

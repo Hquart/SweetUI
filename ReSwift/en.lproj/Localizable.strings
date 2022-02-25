@@ -8,6 +8,12 @@
 
 "onboarding1" = "Join a community of iOS developers sharing custom SwiftUI views";
 
+"onboarding2" = "Browse the library and tap the View you like to get the code";
+
+"onboarding3" = "Help grow the community by sharing your own designs";
+
+"onboadring4" = "Let's go";
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 "home0" = "Welcome";
@@ -18,7 +24,6 @@
 
 "home3" = "You need to be logged in to iCloud on your device to add a view to the database";
  
-"home4" = "Enjoy !";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,3 +32,26 @@
 "beta2" = "Stay tuned !";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
+"profileTitle" = "Account Settings";
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+"addView1" = "Upload a screenshot of your View";
+
+"addView2" = "Please make a screenshot of your view on a white background with a little padding";
+
+"addView3" = "Paste Swift code below";
+
+"addView4" = "Comment your code to add instructions if needed";
+
+"addView5" = "Submit";
+
+"alert1" = "Incorrect Submission";
+
+"alert2" = "Please complete all steps and make sure you are logged in to iCloud on your device";
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+"mainView" = "Tap to get the code";
+
+
+
+

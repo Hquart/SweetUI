@@ -18,33 +18,33 @@ struct MainView: View {
     @State private var itemTaped: SwiftItem?
     @State private var codeSnippet: String = ""
     @State private var showAddView: Bool = false
-
+    
     @State var collectionType: String
     
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
         GeometryReader { geo in
-          
-               
+            
+            
             NavigationView {
                 ScrollView {
                     Spacer()
-                    Text("Tap to get the code")
+                    Text(String(localized: "mainView")) // "Tap to get the code"
                         .foregroundColor(Color.theme.darkBlue)
                         .font(.headline)
-//                        .frame(width: geo.size.width, height: geo.size.height * 0.3)
+                    //                        .frame(width: geo.size.width, height: geo.size.height * 0.3)
                     LazyVGrid(columns: gridColumns, alignment: .center, spacing: 20) {
                         ForEach(viewModel.swiftItems, id: \.self) { item in
                             if item.type == collectionType {
-                            if let designUrl = item.designImage,
-                               let designData = try? Data(contentsOf: designUrl),
-                               let designImage = UIImage(data: designData) {
+                                if let designUrl = item.designImage,
+                                   let designData = try? Data(contentsOf: designUrl),
+                                   let designImage = UIImage(data: designData) {
                                     RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(Color.white)
-                                    .shadow(color: .theme.darkBlue, radius: 5, x: 0, y: 0)
-                                    .padding()
-                                    .frame(width: geo.size.width * (1/3), height: geo.size.height * 0.2)
+                                        .foregroundColor(Color.white)
+                                        .shadow(color: .theme.darkBlue, radius: 5, x: 0, y: 0)
+                                        .padding()
+                                        .frame(width: geo.size.width * (1/3), height: geo.size.height * 0.2)
                                         .overlay(
                                             Image(uiImage: designImage)
                                                 .resizable()
@@ -57,16 +57,11 @@ struct MainView: View {
                                             showCode.toggle()
                                         }
                                         .padding()
+                                }
                             }
                         }
                     }
                 }
-                   
-                }
-                
-//                .background(LinearGradient(colors: , startPoint: .leading, endPoint: .trailing))
-                
-                .background(RadialGradient(gradient: Gradient(colors: [.gray, .theme.background]), center: .center, startRadius: 2, endRadius: 650))
                 .onAppear(perform: viewModel.fetchSwiftItems)
                 
                 .toolbar {
@@ -75,14 +70,11 @@ struct MainView: View {
                             showAddView.toggle()
                         } label: {
                             Text("+")
-                                .font(.custom("Arial Rounded MT Bold", size: 45))
+                                .font(.custom("Arial Rounded MT Bold", size: 35))
                                 .foregroundColor(Color.theme.pinkIcon)
                                 .padding()
-                         
                                 .background(Color.theme.darkBlue)
                                 .clipShape(Circle())
-                        
-                              
                                 .shadow(color: Color.theme.lightBlue, radius: 8)
                         }
                     }
@@ -92,7 +84,7 @@ struct MainView: View {
                 .onAppear(perform: setView)
                 .sheet(isPresented: $showCode) {
                     CodeView(code: $codeSnippet)
-                      
+                    
                 }
                 .sheet(isPresented: $showAddView) {
                     AddNewItemView()
