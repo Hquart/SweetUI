@@ -27,7 +27,7 @@ struct MainView: View {
         GeometryReader { geo in
             
             
-            NavigationView {
+//            NavigationView {
                 ScrollView {
                     Spacer()
                     Text(String(localized: "mainView")) // "Tap to get the code"
@@ -62,22 +62,25 @@ struct MainView: View {
                         }
                     }
                 }
-                .onAppear(perform: viewModel.fetchSwiftItems)
                 
+                .onAppear(perform: viewModel.fetchSwiftItems)
+              
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             showAddView.toggle()
                         } label: {
                             Text("+")
-                                .font(.custom("Arial Rounded MT Bold", size: 35))
+                                .font(.custom("Arial Rounded MT Bold", size: 25))
                                 .foregroundColor(Color.theme.pinkIcon)
                                 .padding()
                                 .background(Color.theme.darkBlue)
                                 .clipShape(Circle())
                                 .shadow(color: Color.theme.lightBlue, radius: 8)
+                                
                         }
                     }
+                 
                 }
                 .navigationBarTitle("\(collectionType)" + " collection")
                 .font(.custom("Arial Rounded MT Bold", size: 20))
@@ -89,11 +92,12 @@ struct MainView: View {
                 .sheet(isPresented: $showAddView) {
                     AddNewItemView()
                 }
-            }
+            
+            .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.darkBlue))
             .navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarColor(backgroundColor: UIColor(Color.theme.background), tintColor: UIColor(Color.primary))
+       
         }
-        
+//    } navigationView end
     }
     func setView() {
         viewModel.fetchSwiftItems()

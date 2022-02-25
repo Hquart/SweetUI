@@ -38,7 +38,7 @@ struct AddNewItemView: View {
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
                     Text(String(localized: "addView2")) // "Please make a screenshot of your view on a white background with a little padding"
-                        .foregroundColor(Color(UIColor.systemGray4))
+                        .foregroundColor(Color.theme.placeholderText)
                 }
                 Button {
                     showPicker.toggle()
@@ -71,7 +71,7 @@ struct AddNewItemView: View {
                     .font(.custom("Arial Rounded MT Bold", size: 25))
                     .multilineTextAlignment(.center)
                 Text(String(localized: "addView4"))// "Comment your code to add instructions if needed"
-                    .foregroundColor(Color(UIColor.systemGray4))
+                        .foregroundColor(Color.theme.placeholderText)
                 }
                 Button {
                     pasteCode()

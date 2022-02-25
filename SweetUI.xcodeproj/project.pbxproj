@@ -35,7 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		96A8959827BCE85100C7362A /* ReSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A8959827BCE85100C7362A /* SweetUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A8959B27BCE85100C7362A /* ReSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwiftApp.swift; sourceTree = "<group>"; };
 		96A8959D27BCE85100C7362A /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		96A8959F27BCE85200C7362A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		96A8959927BCE85100C7362A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96A8959827BCE85100C7362A /* ReSwift.app */,
+				96A8959827BCE85100C7362A /* SweetUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96A8959727BCE85100C7362A /* ReSwift */ = {
+		96A8959727BCE85100C7362A /* SweetUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96A895A627BCE85200C7362A /* Build configuration list for PBXNativeTarget "ReSwift" */;
+			buildConfigurationList = 96A895A627BCE85200C7362A /* Build configuration list for PBXNativeTarget "SweetUI" */;
 			buildPhases = (
 				96A8959427BCE85100C7362A /* Sources */,
 				96A8959527BCE85100C7362A /* Frameworks */,
@@ -215,9 +215,9 @@
 			);
 			dependencies = (
 			);
-			name = ReSwift;
+			name = SweetUI;
 			productName = ReSwift;
-			productReference = 96A8959827BCE85100C7362A /* ReSwift.app */;
+			productReference = 96A8959827BCE85100C7362A /* SweetUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96A8959327BCE85100C7362A /* Build configuration list for PBXProject "ReSwift" */;
+			buildConfigurationList = 96A8959327BCE85100C7362A /* Build configuration list for PBXProject "SweetUI" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -249,7 +249,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96A8959727BCE85100C7362A /* ReSwift */,
+				96A8959727BCE85100C7362A /* SweetUI */,
 			);
 		};
 /* End PBXProject section */
@@ -447,8 +447,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -456,11 +456,12 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hquart.iSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SweetUI;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Debug;
 		};
@@ -481,8 +482,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,18 +491,19 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hquart.iSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReSwift;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96A8959327BCE85100C7362A /* Build configuration list for PBXProject "ReSwift" */ = {
+		96A8959327BCE85100C7362A /* Build configuration list for PBXProject "SweetUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96A895A427BCE85200C7362A /* Debug */,
@@ -510,7 +512,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96A895A627BCE85200C7362A /* Build configuration list for PBXNativeTarget "ReSwift" */ = {
+		96A895A627BCE85200C7362A /* Build configuration list for PBXNativeTarget "SweetUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96A895A727BCE85200C7362A /* Debug */,

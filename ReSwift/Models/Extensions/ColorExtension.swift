@@ -13,6 +13,7 @@ struct ColorTheme {
     let darkBlue = Color("DarkBlue")
     let lightBlue = Color("LightBlue")
     let pinkIcon = Color("PinkIcon")
+    let placeholderText = Color("placeholderText")
     
 }
 

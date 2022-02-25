@@ -16,11 +16,11 @@ struct SidebarView: View {
     
     @AppStorage("explanations") private var isShowingExplanations: Bool = true
     
-    init() {
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.darkBlue)]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.background)]
-    }
+//    init() {
+//        let navBarAppearance = UINavigationBar.appearance()
+//        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.darkBlue)]
+//        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.background)]
+//    }
     
     var body: some View {
         NavigationView {
@@ -85,7 +85,7 @@ struct SidebarView: View {
                 Text(String(localized: "home2")).padding()
                 Text(String(localized: "home3")).padding()
             }
-            .foregroundColor(Color(UIColor.systemGray4))
+            .foregroundColor(Color.theme.placeholderText)
             .font(.title.bold())
             .multilineTextAlignment(.center)
         }

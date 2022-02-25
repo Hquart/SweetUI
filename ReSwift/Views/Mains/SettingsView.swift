@@ -64,6 +64,7 @@ struct SettingsView: View {
                             print("Authorisation failed: \(error.localizedDescription)")
                         }
                     }
+                    .opacity(inBeta ? 0.2 : 1)
                     .disabled(inBeta)
                     .frame(width: geo.size.width * 0.3, height: geo.size.height * 0.08, alignment: .center)
                     

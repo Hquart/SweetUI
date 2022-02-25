@@ -28,64 +28,29 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-"beta1" = "Logi";
+"beta1" = "De nouvelles fonctionnalités sont en développement";
 
-"beta2" = "Stay tuned !";
-
-
-
-
-
-
-
-
-
-
-
-
-"onboarding1" = "Join a community of iOS developers sharing custom SwiftUI views";
-
-"onboarding2" = "Browse the library and tap the View you like to get the code";
-
-"onboarding3" = "Help grow the community by sharing your own designs";
-
-"onboadring4" = "Let's go";
+"beta2" = "De  nouvelles informations prochainement";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
-"home0" = "Welcome";
-
-"home1" = "Choose a category of views to browse in the sidebar";
-
-"home2" = "To add your custom views, click the + button on the top right";
-
-"home3" = "You need to be logged in to iCloud on your device to add a view to the database";
- 
-"home4" = "Enjoy !";
-
+"profileTitle" = "Reglages";
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-"beta1" = "Login and extra features still in development";
+"addView1" = "Importer une capture de votre vue";
 
-"beta2" = "Stay tuned !";
+"addView2" = "Capturez votre vue sur fond blanc avec un peu de contour";
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-"profileTitle" = "Account Settings";
-////////////////////////////////////////////////////////////////////////////////////////////////
+"addView3" = "Collez votre code Swift ci dessous";
 
-"addView1" = "Upload a screenshot of your View";
+"addView4" = "Ajoutez des instructions en commentant votre code si besoin";
 
-"addView2" = "Please make a screenshot of your view on a white background with a little padding";
+"addView5" = "Confirmer";
 
-"addView3" = "Paste Swift code below";
+"alert1" = "Erreur";
 
-"addView4" = "Comment your code to add instructions if needed";
+"alert2" = "Complétez le formulaire et assurez vous d'etre connecté à iCloud";
 
-"addView5" = "Submit";
 
-"alert1" = "Incorrect Submission";
+"mainView" = "Cliquez la vue pour voir le code";
 
-"alert2" = "Please complete all steps and make sure you are logged in to iCloud on your device";
-////////////////////////////////////////////////////////////////////////////////////////////////
 
-"mainView" = "Tap to get the code";

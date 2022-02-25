@@ -28,7 +28,7 @@ struct CodeView: View {
                     .font(.subheadline)
                     .foregroundColor(Color.white)
                     .padding()
-                    .background(Color.gray)
+                    .background(Color.theme.placeholderText)
                     .cornerRadius(10)
             }
                 Spacer()
