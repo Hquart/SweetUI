@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SidebarView: View {
     
     @State private var showAddPoolView: Bool = false
@@ -16,26 +17,31 @@ struct SidebarView: View {
     
     @AppStorage("explanations") private var isShowingExplanations: Bool = true
     
-//    init() {
-//        let navBarAppearance = UINavigationBar.appearance()
-//        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.theme.darkBlue)]
-//        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.background)]
-//    }
-    
     var body: some View {
         NavigationView {
             GeometryReader { geo in
+#if targetEnvironment(macCatalyst)
                 List {
-                    Spacer()
+                    NavigationLink(destination: MainView(filter: nil)) {
+                        HStack {
+                            Image(systemName: "rectangle.split.3x3")
+                                .foregroundColor(Color.theme.pinkIcon)
+                            Text("All Views")
+                                .foregroundColor(Color.theme.darkBlue)
+                        }
+                        .font(.title)
+                        .padding()
+                    }
                     ForEach(CollectionType.allCases, id: \.self) { type in
-                        NavigationLink(destination: MainView(collectionType: "\(type.name)")) {
+                        NavigationLink(destination: MainView(filter: "\(type.name)")) {
                             HStack {
                                 Image(systemName: "\(type.symbol)")
-                                
                                     .foregroundColor(Color.theme.pinkIcon)
-                                Text(type.name) .foregroundColor(Color.theme.darkBlue)
+                                Text(type.name)
+                                    .foregroundColor(Color.theme.darkBlue)
                             }
-                            .font(.custom("Arial Rounded MT Bold", size: 22))
+                            .font(.title2)
+                            .padding()
                         }
                     }
                     Spacer()
@@ -45,19 +51,45 @@ struct SidebarView: View {
                             Label(String(localized: "profileTitle"), systemImage: "star.fill")
                                 .font(.custom("Arial Rounded MT Bold", size: 20)).disabled(inBeta)
                         }
-//                        NavigationLink(destination: ContributorsView()) {
-//                            Label("Best contributors", systemImage: "star.fill")
-//                                .font(.custom("Arial Rounded MT Bold", size: 20)).disabled(inBeta)
-//                        }
                     }
                     Spacer(minLength: 150)
                 }
+                .listStyle(SidebarListStyle())
+                .navigationBarTitleDisplayMode(.large)
+                .navigationTitle("SweetUI")
+#else
+                List {
+                    NavigationLink(destination: MainView(filter: nil)) {
+                        HStack {
+                            Image(systemName: "rectangle.split.3x3")
+                                .foregroundColor(Color.theme.pinkIcon)
+                            Text("All Views")
+                                .foregroundColor(Color.theme.darkBlue)
+                        }
+                        .font(.custom("Arial Rounded MT Bold", size: 25))
+                        .padding(.top)
+                        .padding(.bottom)
+                    }
+//                    Spacer()
+                    ForEach(CollectionType.allCases, id: \.self) { type in
+                        NavigationLink(destination: MainView(filter: "\(type.name)")) {
+                            HStack {
+                                Image(systemName: "\(type.symbol)")
+                                    .foregroundColor(Color.theme.pinkIcon)
+                                Text(type.name)
+                                    .foregroundColor(Color.theme.darkBlue)
+                            }
+                            .font(.custom("Arial Rounded MT Bold", size: 22))
+                        }
+                    }
+                    Spacer()
+                    Spacer(minLength: 150)
+                }
+                .listStyle(SidebarListStyle())
+                .navigationBarTitleDisplayMode(.large)
+                .navigationTitle("SweetUI")
+#endif
             }
-            .navigationBarTitleDisplayMode(.large)
-            .navigationTitle("SweetUI").foregroundColor(Color.theme.darkBlue)
-            
-            .listStyle(SidebarListStyle())
-            
             .sheet(isPresented: $showAddResourceView) {
                 AddNewItemView()
             }
@@ -66,28 +98,7 @@ struct SidebarView: View {
             }, content: {
                 OnboardingView(isShowingExplanations: $isShowingExplanations)
             })
-            VStack {
-                HStack(spacing: -1) {
-                    Text("Sweet")
-                        .foregroundColor(Color.theme.darkBlue).italic().bold()
-                        .font(.custom("Arial Rounded MT Bold", size: 35))
-                    Text("UI")
-                        .foregroundColor(Color.theme.pinkIcon).italic().bold()
-                        .font(.custom("Arial Rounded MT Bold", size: 35))
-                }
-                Image("iconImage")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .opacity(0.5)
-                    .cornerRadius(15)
-                Text(String(localized: "home1")).padding()
-                Text(String(localized: "home2")).padding()
-                Text(String(localized: "home3")).padding()
-            }
-            .foregroundColor(Color.theme.placeholderText)
-            .font(.title.bold())
-            .multilineTextAlignment(.center)
+            MainView(filter: nil)
         }
     }
 }
@@ -98,3 +109,6 @@ struct SidebarView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
+
+
+

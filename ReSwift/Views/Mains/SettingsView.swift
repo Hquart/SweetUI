@@ -37,7 +37,6 @@ struct SettingsView: View {
                     }
                     .shadow(radius: 7)
                     .padding()
-              
                 ////////////////////////////////////////////////////////////////////////////////////////////////
                 if isLogedIn == false {
                     SignInWithAppleButton(.signIn) { request in

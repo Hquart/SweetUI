@@ -8,8 +8,6 @@
 import Foundation
 
 
-
-
 enum CollectionType: CaseIterable {
     
     case button, alert, slider, picker, progressView, other

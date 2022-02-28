@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct ReSwiftApp: App {
     
- 
-    
     var body: some Scene {
         WindowGroup {
             SidebarView()
@@ -20,10 +18,9 @@ struct ReSwiftApp: App {
     }
 }
 
-
-class CurrentView: ObservableObject {
-    
-    @Published var selection: String = ""
-
-    static let shared = CurrentView()
-}
+//class CurrentView: ObservableObject {
+//    
+//    @Published var selection: String = ""
+//
+//    static let shared = CurrentView()
+//}

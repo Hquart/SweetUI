@@ -12,16 +12,13 @@ import CloudKit
 
 struct SwiftItem: Hashable {
     
-    
     let type: String
     let designImage: URL?
     let code: String
     let record: CKRecord
     
-
-
-   
-    }
+    
+}
 
     
   
