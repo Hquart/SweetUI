@@ -25,7 +25,9 @@ struct AddNewItemView: View {
     @State private var imageisUploaded: Bool = false
     @State private var codeSnippet: String = ""
     @State private var showAlert: Bool = false
-    @State private var showThankYou: Bool = false
+     private var formIsComplete: Bool {
+        return imageisUploaded == true && codeSnippet.count > 10 && userViewModel.isSignedInToiCloud == true
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -36,7 +38,12 @@ struct AddNewItemView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
                         Spacer()
-                    }.padding()
+                        Button("Confirm") {
+                           confirm()
+                        }.disabled(!formIsComplete)
+                    }
+                    .font(.title2)
+                    .padding()
 
                     Group {
                         ItemPickerView(selection: $selectedType).frame(width: geo.size.width * 0.8, height: geo.size.height * 0.1, alignment: .center)
@@ -106,15 +113,15 @@ struct AddNewItemView: View {
                                 .frame(width: geo.size.width, height: geo.size.height * 0.25)
                         }
                     }
-                    Button(String(localized: "addView5")) { // "Submit"
-                        confirm()
-                    }
-                    .font(.title2)
-                    .foregroundColor(Color.theme.pinkIcon)
-                    .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.06)
-                    .background(Color.theme.darkBlue)
-                    .cornerRadius(8)
-                    .shadow(color: Color.theme.lightBlue, radius: 2)
+//                    Button(String(localized: "addView5")) { // "Submit"
+//                        confirm()
+//                    }
+//                    .font(.title2)
+//                    .foregroundColor(Color.theme.pinkIcon)
+//                    .frame(width: geo.size.width * 0.2, height: geo.size.height * 0.06)
+//                    .background(Color.theme.darkBlue)
+//                    .cornerRadius(8)
+//                    .shadow(color: Color.theme.lightBlue, radius: 2)
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text(String(localized: "alert1")), message: Text(String(localized: "alert2")), dismissButton: .default(Text("OK")))
@@ -132,9 +139,7 @@ struct AddNewItemView: View {
     }
     
     func confirm() {
-        guard imageisUploaded == true,
-              codeSnippet.count > 10,
-              userViewModel.isSignedInToiCloud == true else {
+        guard formIsComplete else {
                   showAlert.toggle()
                   return }
         viewModel.addResourceItem(type: selectedType, designImage: previewImage, code: codeSnippet)
