@@ -6,6 +6,7 @@
 //
 //
 import SwiftUI
+import UIKit
 
 struct CodeView: View {
     
@@ -18,14 +19,15 @@ struct CodeView: View {
 #if targetEnvironment(macCatalyst)
                 HStack {
                     Spacer()
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.title3)
-                    }
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(Color.red)
+                        .onTapGesture {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     .padding()
                 }
+               
 #endif
                 Spacer()
 #if targetEnvironment(macCatalyst)
@@ -37,18 +39,15 @@ struct CodeView: View {
                 .font(.custom("SF Mono Bold", size: 20))
 #endif
             
-            Button {
-                copy(code: code)
-            } label: {
-                Image(systemName: "doc.on.clipboard")
-                    .font(.subheadline)
-                    .foregroundColor(Color.white)
+                    Image(systemName: "doc.on.clipboard")
+                        .font(.title)
+                        .foregroundColor(Color.theme.placeholderText)
+                        .onTapGesture {
+                            copy(code: code)
+                        }
                     .padding()
-                    .background(Color.theme.placeholderText)
-                    .cornerRadius(10)
-            }
-                Spacer()
-            }.accentColor(.red)
+                }
+         
 
         }
     }
