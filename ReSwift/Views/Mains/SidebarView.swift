@@ -45,14 +45,8 @@ struct SidebarView: View {
                         }
                     }
                     Spacer()
-                    Group {
-                        Spacer(minLength: geo.size.height * 0.3)
-                        NavigationLink(destination: SettingsView()) {
-                            Label(String(localized: "profileTitle"), systemImage: "star.fill")
-                                .font(.custom("Arial Rounded MT Bold", size: 20)).disabled(inBeta)
-                        }
-                    }
                     Spacer(minLength: 150)
+               
                 }
                 .listStyle(SidebarListStyle())
                 .navigationBarTitleDisplayMode(.large)

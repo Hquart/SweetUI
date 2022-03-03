@@ -1,7 +1,52 @@
-/* 
+/*
   Localizable.strings
   ReSwift
 
   Created by Naji Achkar on 22/02/2022.
   
 */
+
+//"onboarding1" = "Join a community of iOS developers sharing custom SwiftUI views";
+"onboarding1" = "Unisciti a una community di sviluppatori iOS che condividono View SwiftUI personalizzate";
+
+//"onboarding2" = "Browse the library and tap the View you like to get the code";
+"onboarding2" = "Sfoglia la libreria e tocca la View che ti piace per ottenere il codice";
+
+//"onboarding3" = "Help grow the community by sharing your own designs";
+"onboarding3" = "Aiutaci a far crescere la community condividendo i tuoi progetti";
+
+//"onboadring4" = "Let's go";
+"onboadring4" = "Iniziamo!";
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//"addView0" = "Select the type of view you want to add";
+"addView0" = "Seleziona il tipo di View che desideri aggiungere";
+
+//"addView1" = "Upload a screenshot of your View";
+"addView1" = "Carica uno screenshot della tua View";
+
+//"addView2" = "Please make a screenshot of your view on a white background with a little padding";
+"addView2" = "Si prega di fare uno screenshot della View su uno sfondo bianco con un po' di contorno";
+
+//"addView3" = "Paste Swift code below";
+"addView3" = "Incolla il codice Swift di seguito";
+
+//"addView4" = "Comment your code to add instructions if needed";
+"addView4" = "Commenta il tuo codice per aggiungere istruzioni se necessario";
+
+//"addView5" = "Submit";
+"addView5" = "Invia";
+
+//"alert1" = "Incomplete submission";
+"alert1" = "Risorsa incompleta";
+
+//"alert2" = "Please complete all steps and make sure you are logged in to iCloud on your device";
+"alert2" = "Completa tutti i passaggi e assicurati di aver effettuato l'accesso a iCloud sul tuo dispositivo";
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//"mainView" = "Tap to get the code";
+"mainView" = "Tocca per ottenere il codice";
+
+
+

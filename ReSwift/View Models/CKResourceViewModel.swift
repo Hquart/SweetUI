@@ -16,7 +16,6 @@ import UniformTypeIdentifiers
 class CloudKitService: ObservableObject {
     
     @Published var swiftItems: [SwiftItem] = []
-    @Published var sweetUser: [SweetUser] = []
     
     init() {
         fetchSwiftItems()
@@ -39,24 +38,7 @@ class CloudKitService: ObservableObject {
         }
         saveItem(record: newSwiftItem)
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    func addSweetUser(name: String, avatar: UIImage?, id: String) {
-        let newSweetUser = CKRecord(recordType: "SweetUser")
-        newSweetUser["name"] = name
-        newSweetUser["id"] = id
-        
-        guard let CkAvatar = avatar,
-              let avatarUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(name).avatar.jpg"),
-              let avatarData = CkAvatar.jpegData(compressionQuality: 1.0) else { return }
-        do {
-            try avatarData.write(to: avatarUrl)
-            let avatarAsset = CKAsset(fileURL: avatarUrl)
-            newSweetUser["avatar"] = avatarAsset
-        }  catch let error {
-            print(error)
-        }
-        saveItem(record: newSweetUser)
-    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private func saveItem(record: CKRecord) {
         CKContainer.default().publicCloudDatabase.save(record) { [weak self] returnedRecord, returnedError in
@@ -128,26 +110,7 @@ class CloudKitService: ObservableObject {
         }
         addOperation(operation: queryOperation)
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////// UPDATE FUNCTION    ////////////////////////////////////////////////////////////////////////////////////////////////
-//    func updateItem(resource: Resource) {
-//        let record = resource.record
-//        record["name"] = "NEW NAME"
-//        saveItem(record: record)
-//    }
-    //////////////////////////////////////////////////////////////////////////////////////////////// DELETE FUNCTION    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-//    func deleteItem(indexSet: IndexSet) {
-//        guard let index = indexSet.first else { return }
-//        let resourceToRemove = resources[index]
-//        let record = resourceToRemove.record
-//
-//            CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self] returnedRecordID, returnedError in
-//                DispatchQueue.main.async {
-//                self?.resources.remove(at: index)
-//                }
-//
-//        }
-//    }
 
 }
 

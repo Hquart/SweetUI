@@ -13,7 +13,7 @@ struct ReSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             SidebarView()
-                .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.background))
+//                .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.background))
         }
     }
 }

@@ -7,12 +7,15 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
-class CKUser: ObservableObject {
+class CKUserService: ObservableObject {
     
     @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""
     @Published var userName: String = ""
+    @Published var familyName: String = ""
+    @Published var UIImage: UIImage?
     @Published var permissionStatus: Bool = false
     @Published var contributionScore: Int = 0
     
@@ -75,18 +78,16 @@ class CKUser: ObservableObject {
     func discoveriCloudUser(id: CKRecord.ID) {
         CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedIdentity, returnedError in
             DispatchQueue.main.async {
-                if let name = returnedIdentity?.nameComponents?.givenName {
+                if let name = returnedIdentity?.nameComponents?.givenName,
+                   let familyName = returnedIdentity?.nameComponents?.familyName {
                     self?.userName = name
+                    self?.familyName = familyName                
                 }
             }
         }
     }
-    
-//    func addPseudo(pseudo: String) {
-//        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedIdentity, returnedError in
-//            DispatchQueue.main.async {
-//                if let name = CKUserIdentity["pseudonyme"] {
-//                    self?.userName = name
-//                }
-//    }
 }
+
+
+     
+                    

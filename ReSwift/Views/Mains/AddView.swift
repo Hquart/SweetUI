@@ -16,7 +16,7 @@ struct AddNewItemView: View {
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
     @StateObject var viewModel = CloudKitService()
-    @StateObject var userViewModel = CKUser()
+    @StateObject var userViewModel = CKUserService()
     
     @State private var selectedType: String = ""
     @State private var showPicker = false
@@ -40,7 +40,8 @@ struct AddNewItemView: View {
                     Spacer()
                     Button("Confirm") {
                         confirm()
-                    }.disabled(!formIsComplete)
+                    }
+//                    .disabled(!formIsComplete)
                 }
                 .font(.title2)
                 .padding()

@@ -51,7 +51,7 @@ struct MainView: View {
                         .padding()
                         .background(Color.theme.darkBlue)
                         .clipShape(Circle())
-                        .shadow(color: Color.theme.lightBlue, radius: 8)
+//                        .shadow(color: Color.theme.lightBlue, radius: 8)
                 }
             }
         }
@@ -64,7 +64,7 @@ struct MainView: View {
         .fullScreenCover(isPresented: $showAddView) {
             AddNewItemView()
         }
-        .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.darkBlue))
+//        .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.darkBlue))
     }
     
     func setView() {
@@ -85,6 +85,7 @@ struct MainView: View {
                     Image(uiImage: designImage)
                         .resizable()
                         .scaledToFit()
+                        .cornerRadius(15)
                         .padding()
                 )
                 .onTapGesture {

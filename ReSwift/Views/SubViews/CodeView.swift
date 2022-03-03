@@ -12,6 +12,7 @@ struct CodeView: View {
     
     @Binding var code: String
     @Environment(\.presentationMode) var presentationMode
+    @State private var copyButtonTaped: Bool = false
     
     var body: some View {
         GeometryReader { geo in
@@ -44,8 +45,14 @@ struct CodeView: View {
                         .foregroundColor(Color.theme.placeholderText)
                         .onTapGesture {
                             copy(code: code)
+                            copyButtonTaped.toggle()
                         }
                     .padding()
+                    .popover(isPresented: $copyButtonTaped) {
+                              Text("Copied !")
+                                  .font(.headline)
+                                  .padding()
+                          }
                 }
          
 
