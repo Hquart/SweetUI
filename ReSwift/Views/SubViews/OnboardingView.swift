@@ -81,16 +81,17 @@ struct OnboardingView: View {
                             .font(.custom("Arial Rounded MT Bold", size: 45))
                         
                         
-                        Button(String(localized: "onboadring4")) {
-                            isShowingExplanations.toggle()
-                        }
+                        Text(String(localized: "onboadring4"))
                         .font(.custom("Arial Rounded MT Bold", size: 45))
-                        .foregroundColor(Color.theme.pinkIcon)
+                        .foregroundColor(Color(UIColor.systemPink))
                         .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.1)
                         .background(Color.theme.darkBlue)
                         .cornerRadius(8)
                         .shadow(color: Color.theme.lightBlue, radius: 10)
                         .padding()
+                        .onTapGesture {
+                            isShowingExplanations = false
+                        }
                     }
                 }
                 .tabViewStyle(.page)

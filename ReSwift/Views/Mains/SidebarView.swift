@@ -92,6 +92,9 @@ struct SidebarView: View {
             }, content: {
                 OnboardingView(isShowingExplanations: $isShowingExplanations)
             })
+            .onAppear {
+                isShowingExplanations = true
+            }
             MainView(filter: nil)
         }
     }
