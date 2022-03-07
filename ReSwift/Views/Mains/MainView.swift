@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject var viewModel = CloudKitService()
+    @StateObject var viewModel = CKRessourceService()
     
     @State private var showCode: Bool = false
     @State private var itemTaped: SwiftItem?
@@ -51,31 +51,28 @@ struct MainView: View {
                         .padding()
                         .background(Color.theme.darkBlue)
                         .clipShape(Circle())
-//                        .shadow(color: Color.theme.lightBlue, radius: 8)
                 }
             }
         }
         .navigationBarTitle("\(filter ?? "All Views")" + " collection")
         .font(.custom("Arial Rounded MT Bold", size: 20))
-        .onAppear(perform: setView)
+        .onAppear(perform:  viewModel.fetchSwiftItems)
         .sheet(isPresented: $showCode) {
             CodeView(code: $codeSnippet)
         }
         .fullScreenCover(isPresented: $showAddView) {
             AddNewItemView()
         }
-//        .navigationBarColor(backgroundColor: UIColor(Color.red), tintColor: UIColor(Color.theme.darkBlue))
     }
-    
-    func setView() {
-        viewModel.fetchSwiftItems()
-//        self.currentView.selection = filter ?? ""
-    }
+
     
     @ViewBuilder func contentBuilder(item: SwiftItem, geo: GeometryProxy) -> some View {
         if let designUrl = item.designImage,
            let designData = try? Data(contentsOf: designUrl),
            let designImage = UIImage(data: designData) {
+            
+//            VStack {
+//                Text(item.creator)
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(Color.white)
                 .shadow(color: .theme.darkBlue, radius: 5, x: 0, y: 0)
@@ -94,8 +91,10 @@ struct MainView: View {
                     showCode.toggle()
                 }
                 .padding()
+//        }
         }
     }
+ 
 }
 
 //struct MainView_Previews: PreviewProvider {

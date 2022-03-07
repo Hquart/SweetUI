@@ -16,6 +16,7 @@ struct SwiftItem: Hashable {
     let designImage: URL?
     let code: String
     let record: CKRecord
+//    let creator: String
     
     
 }

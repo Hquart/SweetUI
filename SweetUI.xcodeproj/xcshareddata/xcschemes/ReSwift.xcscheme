@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96A8959727BCE85100C7362A"
-               BuildableName = "ReSwift.app"
+               BuildableName = "SweetUI.app"
                BlueprintName = "SweetUI"
                ReferencedContainer = "container:SweetUI.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96A8959727BCE85100C7362A"
-            BuildableName = "ReSwift.app"
+            BuildableName = "SweetUI.app"
             BlueprintName = "SweetUI"
             ReferencedContainer = "container:SweetUI.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96A8959727BCE85100C7362A"
-            BuildableName = "ReSwift.app"
+            BuildableName = "SweetUI.app"
             BlueprintName = "SweetUI"
             ReferencedContainer = "container:SweetUI.xcodeproj">
          </BuildableReference>

@@ -9,13 +9,14 @@
 
 import Foundation
 import SwiftUI
-
 import CloudKit
 import UniformTypeIdentifiers
 
-class CloudKitService: ObservableObject {
+class CKRessourceService: ObservableObject {
     
     @Published var swiftItems: [SwiftItem] = []
+    
+    var userModel = CKUserService()
     
     init() {
         fetchSwiftItems()
@@ -25,6 +26,7 @@ class CloudKitService: ObservableObject {
         let newSwiftItem = CKRecord(recordType: "SwiftItem")
         newSwiftItem["type"] = type
         newSwiftItem["code"] = code
+   
         
         guard let CkDesignImage = designImage,
               let designUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("\(type)+design.jpg"),
@@ -38,6 +40,9 @@ class CloudKitService: ObservableObject {
         }
         saveItem(record: newSwiftItem)
     }
+    
+   
+    
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private func saveItem(record: CKRecord) {
@@ -54,6 +59,15 @@ class CloudKitService: ObservableObject {
         CKContainer.default().publicCloudDatabase.add(operation)
     }
     
+    
+  
+    
+    
+    
+    
+    
+    
+    
      func fetchSwiftItems() {
         
         let predicate = NSPredicate(value: true)
@@ -67,29 +81,33 @@ class CloudKitService: ObservableObject {
             queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
                 switch returnedResult {
                 case .success(let record):
-                    ////////////////////////////////////////////////////////////////////////////////////////////////
+                   
                     guard let type = record["type"] as? String,
-                          let code = record["code"] as? String  else { return }
+                          let code = record["code"] as? String
+//                          let creator = record["creator"] as? String
+                    else { return }
+             
                   
                     let designImageAsset = record["designImage"] as? CKAsset
                     let designImageUrl = designImageAsset?.fileURL
              
-                    
                     returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, code: code, record: record))
                                          
                 case .failure(let error):
                     print("Error recordMatchedBlock: \(error)")
                 }
             }
+            
         } else {
             queryOperation.recordFetchedBlock =  { (record) in
                 guard let type = record["type"] as? String,
-                      let code = record["code"] as? String   else { return }
+                      let code = record["code"] as? String
+//                      let creator = record["creator"] as? String
+                else { return }
               
                 let designImageAsset = record["designImage"] as? CKAsset
                 let designImageUrl = designImageAsset?.fileURL
              
-                
                 returnedItems.append(SwiftItem(type: type, designImage: designImageUrl, code: code, record: record))
             }
         }
@@ -110,7 +128,5 @@ class CloudKitService: ObservableObject {
         }
         addOperation(operation: queryOperation)
     }
-
-
 }
 

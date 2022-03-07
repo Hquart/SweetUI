@@ -15,7 +15,7 @@ struct AddNewItemView: View {
     
     let gridColumns: [GridItem] =  Array(repeating: .init(.flexible()), count: 3)
     
-    @StateObject var viewModel = CloudKitService()
+    @StateObject var viewModel = CKRessourceService()
     @StateObject var userViewModel = CKUserService()
     
     @State private var selectedType: String = ""
