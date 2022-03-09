@@ -28,7 +28,7 @@ struct MainView: View {
                 Text(String(localized: "mainView")) // "Tap to get the code"
                     .foregroundColor(Color.theme.darkBlue)
                     .font(.headline)
-                LazyVGrid(columns: gridColumns, alignment: .center, spacing: 20) {
+                LazyVGrid(columns: gridColumns, alignment: .center) {
                     ForEach(viewModel.swiftItems, id: \.self) { item in
                         if filter == item.type {
                         contentBuilder(item: item, geo: geo)
@@ -60,9 +60,15 @@ struct MainView: View {
         .sheet(isPresented: $showCode) {
             CodeView(code: $codeSnippet)
         }
+#if targetEnvironment(macCatalyst)
         .fullScreenCover(isPresented: $showAddView) {
             AddNewItemView()
         }
+#else
+        .sheet(isPresented: $showAddView) {
+            AddNewItemView()
+        }
+#endif
     }
 
     

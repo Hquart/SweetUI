@@ -14,7 +14,7 @@ class CKUserService: ObservableObject {
     @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""
     @Published var userName: String = ""
-    @Published var familyName: String = ""
+//    @Published var familyName: String = ""
     @Published var UIImage: UIImage?
     @Published var permissionStatus: Bool = false
     @Published var contributionScore: Int = 0
@@ -78,10 +78,11 @@ class CKUserService: ObservableObject {
     func discoveriCloudUser(id: CKRecord.ID) {
         CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedIdentity, returnedError in
             DispatchQueue.main.async {
-                if let name = returnedIdentity?.nameComponents?.givenName,
-                   let familyName = returnedIdentity?.nameComponents?.familyName {
+                if let name = returnedIdentity?.nameComponents?.givenName {
+//                   let familyName = returnedIdentity?.nameComponents?.familyName
+                
                     self?.userName = name
-                    self?.familyName = familyName                
+//                    self?.familyName = familyName
                 }
             }
         }

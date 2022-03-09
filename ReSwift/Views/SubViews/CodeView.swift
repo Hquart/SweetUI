@@ -54,8 +54,6 @@ struct CodeView: View {
                                   .padding()
                           }
                 }
-         
-
         }
     }
     func copy(code: String) {

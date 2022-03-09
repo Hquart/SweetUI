@@ -75,8 +75,18 @@ struct SidebarView: View {
                             }
                             .font(.custom("Arial Rounded MT Bold", size: 22))
                         }
+                        
                     }
-                    Spacer()
+//                    NavigationLink(destination: ScoreView()) {
+//                        HStack {
+//                            Image(systemName: "star.fill")
+//                                .foregroundColor(Color.theme.pinkIcon)
+//                            Text("Ranking")
+//                                .foregroundColor(Color.theme.darkBlue)
+//                        }
+//                        .font(.custom("Arial Rounded MT Bold", size: 22))
+//                    }
+                    
                     Spacer(minLength: 150)
                 }
                 .listStyle(SidebarListStyle())

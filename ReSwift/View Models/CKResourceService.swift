@@ -16,7 +16,8 @@ class CKRessourceService: ObservableObject {
     
     @Published var swiftItems: [SwiftItem] = []
     
-    var userModel = CKUserService()
+    var userService = CKUserService()
+//    var scoreService = CKScoreService()
     
     init() {
         fetchSwiftItems()
@@ -39,6 +40,10 @@ class CKRessourceService: ObservableObject {
             print(error)
         }
         saveItem(record: newSwiftItem)
+        
+//        scoreService.didUploadResource(creator: userService.userName)
+        
+        
     }
     
    

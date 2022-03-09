@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import CloudKit
 
-struct ScoreItem {
+struct ScoreItem: Hashable {
+    
     var creator: String
     var value: Int
+    var record: CKRecord
 }

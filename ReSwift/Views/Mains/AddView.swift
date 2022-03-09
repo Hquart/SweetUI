@@ -26,7 +26,9 @@ struct AddNewItemView: View {
     @State private var codeSnippet: String = ""
     @State private var showAlert: Bool = false
     private var formIsComplete: Bool {
-        return selectedType != "" && imageisUploaded == true && codeSnippet.count > 10 && userViewModel.isSignedInToiCloud == true
+        return selectedType != "" && imageisUploaded == true &&
+        codeSnippet.count > 10 &&
+        userViewModel.isSignedInToiCloud == true
     }
     
     var body: some View {
@@ -41,8 +43,8 @@ struct AddNewItemView: View {
                     Button("Confirm") {
                         confirm()
                     }
-//                    .disabled(!formIsComplete)
                 }
+                
                 .font(.title2)
                 .padding()
                 
@@ -129,7 +131,6 @@ struct AddNewItemView: View {
             return }
         viewModel.addResourceItem(type: selectedType, designImage: previewImage, code: codeSnippet)
         presentationMode.wrappedValue.dismiss()
-        
     }
 }
 

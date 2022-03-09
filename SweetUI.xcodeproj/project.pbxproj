@@ -19,6 +19,7 @@
 		9A02BE4627D5306800C31EF3 /* ScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A02BE4527D5306800C31EF3 /* ScoreItem.swift */; };
 		9A02BE4827D530AE00C31EF3 /* CKScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A02BE4727D530AE00C31EF3 /* CKScoreService.swift */; };
 		9A02BE4A27D5FBE200C31EF3 /* CKResourceService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A02BE4927D5FBE200C31EF3 /* CKResourceService2.swift */; };
+		9A02BE4E27D777C500C31EF3 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A02BE4D27D777C500C31EF3 /* ScoreView.swift */; };
 		9A100BD027C7D5F800677062 /* CollectionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A100BCF27C7D5F800677062 /* CollectionTypes.swift */; };
 		9A18635027CBE8C900063DA5 /* ItemPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18634F27CBE8C900063DA5 /* ItemPickerView.swift */; };
 		9A346B4927C279BA000E2B20 /* CKResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A346B4827C279BA000E2B20 /* CKResourceService.swift */; };
@@ -47,6 +48,7 @@
 		9A02BE4527D5306800C31EF3 /* ScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreItem.swift; sourceTree = "<group>"; };
 		9A02BE4727D530AE00C31EF3 /* CKScoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKScoreService.swift; sourceTree = "<group>"; };
 		9A02BE4927D5FBE200C31EF3 /* CKResourceService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKResourceService2.swift; sourceTree = "<group>"; };
+		9A02BE4D27D777C500C31EF3 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoreView.swift; path = "ReSwift/View Models/ScoreView.swift"; sourceTree = SOURCE_ROOT; };
 		9A100BCF27C7D5F800677062 /* CollectionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionTypes.swift; path = ReSwift/Views/Mains/CollectionTypes.swift; sourceTree = SOURCE_ROOT; };
 		9A18634F27CBE8C900063DA5 /* ItemPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPickerView.swift; sourceTree = SOURCE_ROOT; };
 		9A346B4827C279BA000E2B20 /* CKResourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKResourceService.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		96A895D827BCFC7700C7362A /* Mains */ = {
 			isa = PBXGroup;
 			children = (
+				9A02BE4D27D777C500C31EF3 /* ScoreView.swift */,
 				96A8959D27BCE85100C7362A /* SidebarView.swift */,
 				9A346B4A27C27ACF000E2B20 /* MainView.swift */,
 				9A346B6E27C4038F000E2B20 /* AddView.swift */,
@@ -284,6 +287,7 @@
 				9A100BD027C7D5F800677062 /* CollectionTypes.swift in Sources */,
 				96A895DC27BCFD1400C7362A /* ColorExtension.swift in Sources */,
 				96A895CD27BCF46100C7362A /* TextFieldModifier.swift in Sources */,
+				9A02BE4E27D777C500C31EF3 /* ScoreView.swift in Sources */,
 				9AE1B80B27BE5E0000AEB53B /* ImagePicker.swift in Sources */,
 				9A346B4B27C27ACF000E2B20 /* MainView.swift in Sources */,
 				9AB7DC6F27C77736002F9555 /* OnboardingView.swift in Sources */,
