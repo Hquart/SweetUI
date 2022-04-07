@@ -6,7 +6,7 @@
     //  Created by Yann Christophe Maertens on 23/02/2022.
     //
 
-    import SwiftUI
+import SwiftUI
 
 struct OnboardingView: View {
     
@@ -14,17 +14,9 @@ struct OnboardingView: View {
     
         var body: some View {
             GeometryReader { geo in
-                
                 TabView {
                     VStack {
-                        HStack(spacing: -1) {
-                        Text("Sweet")
-                                .foregroundColor(Color.theme.darkBlue).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        Text("UI")
-                                .foregroundColor(Color.theme.pinkIcon).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        }
+                        appNameTitle
                         Image("onboarding1")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
@@ -36,15 +28,7 @@ struct OnboardingView: View {
                             .padding()
                     }
                     VStack {
-                        HStack(spacing: -1) {
-                        Text("Sweet")
-                                .foregroundColor(Color.theme.darkBlue).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        Text("UI")
-                                .foregroundColor(Color.theme.pinkIcon).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        }
-                      
+                        appNameTitle
                         Image("onboarding2")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
@@ -56,15 +40,7 @@ struct OnboardingView: View {
                             .padding()
                     }
                     VStack {
-                        HStack(spacing: -1) {
-                        Text("Sweet")
-                                .foregroundColor(Color.theme.darkBlue).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        Text("UI")
-                                .foregroundColor(Color.theme.pinkIcon).italic().bold()
-                                .font(.custom("Arial Rounded MT Bold", size: 55))
-                        }
-                       
+                        appNameTitle
                         Image("onboarding3")
                             .resizable()
                             .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.3, alignment: .center)
@@ -75,16 +51,21 @@ struct OnboardingView: View {
                             .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.2)
                             .padding()
                     }
-                    VStack {
-                        Text("Welcome")
-                            .foregroundColor(.primary)
-                            .font(.custom("Arial Rounded MT Bold", size: 45))
-                        
-                        
+                    VStack(spacing: 30) {
+                        appNameTitle
+                        Group {
+                        Text("Disclaimer")
+                                .font(.title2).fontWeight(.heavy)
+                        Text("disclaimerText")
+                                .foregroundColor(Color(UIColor.systemGray)).italic()
+                                .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.2, alignment: .center)
+                        }
+                        .font(.caption)
+                     
                         Text(String(localized: "onboadring4"))
-                        .font(.custom("Arial Rounded MT Bold", size: 45))
+                        .font(.custom("Arial Rounded MT Bold", size: 40))
                         .foregroundColor(Color(UIColor.systemPink))
-                        .frame(width: geo.size.width * 0.5, height: geo.size.height * 0.1)
+                        .frame(width: geo.size.width * 0.4, height: geo.size.height * 0.08)
                         .background(Color.theme.darkBlue)
                         .cornerRadius(8)
                         .shadow(color: Color.theme.lightBlue, radius: 10)
@@ -110,5 +91,20 @@ struct OnboardingView: View {
 
 
 
+
+
+
+extension OnboardingView {
+    private var appNameTitle: some View {
+        HStack(spacing: -1) {
+        Text("Sweet")
+                .foregroundColor(Color.theme.darkBlue).italic().bold()
+                .font(.custom("Arial Rounded MT Bold", size: 55))
+        Text("UI")
+                .foregroundColor(Color.theme.pinkIcon).italic().bold()
+                .font(.custom("Arial Rounded MT Bold", size: 55))
+        }
+}
+}
 
 

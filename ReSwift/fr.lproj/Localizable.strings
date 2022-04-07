@@ -35,4 +35,6 @@
 
 "mainView" = "Cliquez la vue pour voir le code";
 
+"disclaimerText" = "SweetUI est un outil destiné au partage d'extraits de code entre ses utilisateurs. \nEn tant que développeurs de SweetUI, nous ne pouvons nous tenir responsables de dommage matériel ou logiciel causé par du code disponible dans l'application . \nIl en va de votre responsabilité de vérifier l'intégrité du code avant de l'utiliser dans vos propres projets. \nEn cliquant le bouton Démarrer ci dessous, vous confirmez votre accord avec ces conditions d'utilisation";
+
 

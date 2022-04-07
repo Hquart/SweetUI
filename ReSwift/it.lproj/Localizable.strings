@@ -48,5 +48,7 @@
 //"mainView" = "Tap to get the code";
 "mainView" = "Tocca per ottenere il codice";
 
+"disclaimerText" = "SweetUI è uno strumento che consente agli utenti di condividere frammenti di codice insieme. \nIn qualità di sviluppatori di SweetUI, non possiamo essere responsabili per alcun problema hardware o software generato dal codice disponibile nell'app. \nÈ tua responsabilità come utente controllare il codice prima di usarlo nel tuo progetto. \nToccando il pulsante Start qui sotto, confermi il tuo consenso a questa dichiarazione di non responsabilità";
+
 
 

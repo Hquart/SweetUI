@@ -60,4 +60,6 @@ struct CodeView: View {
         let pasteboard = UIPasteboard.general
         pasteboard.string = code
     }
+    
+   
 }
