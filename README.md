@@ -20,7 +20,7 @@ ADA MC3
 
 <img width="503" alt="Screenshot 2022-06-08 at 19 25 40" src="https://user-images.githubusercontent.com/39113497/172683066-ca11461c-e31f-4275-8493-b398b3dd1ecf.png">
 <img width="500" alt="Screenshot 2022-06-08 at 19 45 13" src="https://user-images.githubusercontent.com/39113497/172683423-68f5cb01-d0c4-4273-a0a9-c946339d05f4.png">
-<img width="500" alt="Screenshot 2022-06-08 at 19 50 28" src="https://user-images.githubusercontent.com/39113497/172683912-96bc4f33-57d7-4cf9-8430-8752704bfc6b.png">
+<img width="500" alt="Screenshot 2022-06-08 at 19 57 46" src="https://user-images.githubusercontent.com/39113497/172685108-25a267e5-cae9-468f-b921-3c97dced01e3.png">
 
 ## Requirements
 
