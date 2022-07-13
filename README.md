@@ -6,13 +6,12 @@ ADA MC3
 
 * SweetUI is an Ipad OS and Mac OS Catalyst app which targets Apple SwiftUI Developers
 * The idea is to create a database of SwiftUI Views developers can share together -> Tap a view, get the code
-* 
-* It works with Cloudkit, is not release to the app store and is still in development
 * This app was first realized as a project in team at Apple Developer Academy Naples 2022
 
 ## How it works
 
-* User is authenticated via iCLoud which is mandatory to be able to upload a View
+* User is authenticated via iCloud which is mandatory to be able to upload a View
+* Database is stored in Cloudkit
 * Click + button at the top right corner to upload your own view: upload a screenshot from your photo library and paste the code
 * Any user authenticated or not can browse the database of views, tap one, and copy the code
 
